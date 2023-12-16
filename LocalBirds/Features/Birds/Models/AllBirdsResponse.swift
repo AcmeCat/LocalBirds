@@ -10,12 +10,12 @@ import Foundation
 
 // MARK: - AllBirdsResponse
 struct AllBirdsResponse: Codable {
-    let entities: [Entity]
+    let entities: [Bird]
     let total, page, pageSize: Int
 }
 
 // MARK: - Entity
-struct Entity: Codable {
+struct Bird: Codable {
     let images, region: [String]
     let lengthMin, lengthMax, name, sciName, family, order, status: String
     let id: Int

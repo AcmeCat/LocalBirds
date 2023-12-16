@@ -9,18 +9,25 @@ import SwiftUI
 
 struct BirdCardView: View {
     
-    let bird: Int
+    let bird: Bird
     
     var body: some View {
         VStack(spacing: .zero) {
-            Rectangle()
-                .fill(.blue)
-                .frame(height: 130)
+            AsyncImage(url: .init(string: bird.images.first ?? "https://images.unsplash.com/photo-1643650997626-0124dbb98261")) { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: 130)
+                    .clipped()
+            } placeholder: {
+                ProgressView()
+            }
+
             VStack (alignment: .leading) {
                 
-                PillView(id: bird)
+                PillView(id: bird.id)
                 
-                Text("<Common Name><Summink>")
+                Text("\(bird.name)")
                     .foregroundColor(Theme.text)
                     .font(
                         .system(.body, design: .rounded)
@@ -38,7 +45,6 @@ struct BirdCardView: View {
 }
 
 #Preview {
-    BirdCardView(bird: 0)
-        .frame(width: 200
-        )
+        
+    BirdCardView(bird: Bird(images: [], region: [], lengthMin: "21", lengthMax: "22", name: "Hello", sciName: "Hellous", family: "Allens", order: "AndLaw", status: "Real Cool", id: 23)).frame(width: 200)
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct BirdsView: View {
     private let columns = Array(repeating: GridItem(.flexible()),
                                 count: 2)
+    @State private var birds: [Bird] = []
     
     var body: some View {
         NavigationView {
@@ -18,8 +19,8 @@ struct BirdsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, 
                               spacing: 16)  {
-                        ForEach(0...5, id: \.self) { item in
-                            BirdCardView(bird: item)
+                        ForEach(birds, id: \.id) { bird in
+                            BirdCardView(bird: bird)
                         }
                     }
                     .padding()
@@ -29,6 +30,15 @@ struct BirdsView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     create
+                }
+            }
+            .onAppear {
+                do {
+                    let res = try StaticJSONMapper.decode(file: "BirdsStaticData", type: AllBirdsResponse.self)
+                    birds = res.entities
+                } catch {
+                    //handle errors
+                    print(error)
                 }
             }
         }
