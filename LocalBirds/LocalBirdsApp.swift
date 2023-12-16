@@ -11,7 +11,13 @@ import SwiftUI
 struct LocalBirdsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView {
+                BirdsView()
+                    .tabItem {
+                        Symbols.bird
+                        Text("Birds")
+                    }
+            }
         }
     }
 }
