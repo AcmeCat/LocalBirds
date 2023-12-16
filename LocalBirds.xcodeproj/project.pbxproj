@@ -20,6 +20,7 @@
 		612916B22B2D725300726DA7 /* BirdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B12B2D725300726DA7 /* BirdsView.swift */; };
 		612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B32B2D7F3200726DA7 /* BirdCardView.swift */; };
 		612916B72B2D80C700726DA7 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B62B2D80C700726DA7 /* PillView.swift */; };
+		612916B92B2D892E00726DA7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B82B2D892E00726DA7 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		612916B12B2D725300726DA7 /* BirdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsView.swift; sourceTree = "<group>"; };
 		612916B32B2D7F3200726DA7 /* BirdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCardView.swift; sourceTree = "<group>"; };
 		612916B62B2D80C700726DA7 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		612916B82B2D892E00726DA7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 		6129169F2B2C9D0300726DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				612916B82B2D892E00726DA7 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
 				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
 				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,
+				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,
 				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
 				612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */,

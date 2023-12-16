@@ -20,7 +20,11 @@ struct BirdsView: View {
                     LazyVGrid(columns: columns, 
                               spacing: 16)  {
                         ForEach(birds, id: \.id) { bird in
-                            BirdCardView(bird: bird)
+                            NavigationLink {
+                                DetailView()
+                            } label: {
+                                BirdCardView(bird: bird)
+                            }
                         }
                     }
                     .padding()
