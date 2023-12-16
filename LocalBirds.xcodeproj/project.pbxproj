@@ -18,6 +18,8 @@
 		612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916AD2B2D6A0A00726DA7 /* StaticJSONMapper.swift */; };
 		612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916AF2B2D6EB100726DA7 /* AllBirdsResponse.swift */; };
 		612916B22B2D725300726DA7 /* BirdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B12B2D725300726DA7 /* BirdsView.swift */; };
+		612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B32B2D7F3200726DA7 /* BirdCardView.swift */; };
+		612916B72B2D80C700726DA7 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B62B2D80C700726DA7 /* PillView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		612916AD2B2D6A0A00726DA7 /* StaticJSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticJSONMapper.swift; sourceTree = "<group>"; };
 		612916AF2B2D6EB100726DA7 /* AllBirdsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBirdsResponse.swift; sourceTree = "<group>"; };
 		612916B12B2D725300726DA7 /* BirdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsView.swift; sourceTree = "<group>"; };
+		612916B32B2D7F3200726DA7 /* BirdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCardView.swift; sourceTree = "<group>"; };
+		612916B62B2D80C700726DA7 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		612916932B2C9C5600726DA7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				612916B52B2D80B600726DA7 /* Views */,
 				612916AC2B2D69EF00726DA7 /* Mapper */,
 				612916AB2B2D69E200726DA7 /* Models */,
 			);
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				612916B12B2D725300726DA7 /* BirdsView.swift */,
+				612916B32B2D7F3200726DA7 /* BirdCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +256,14 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		612916B52B2D80B600726DA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				612916B62B2D80C700726DA7 /* PillView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +339,8 @@
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
 				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
 				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,
+				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
+				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
 				612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */,
 				612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */,
 				612916922B2C9A9000726DA7 /* Theme.swift in Sources */,
