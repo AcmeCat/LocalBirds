@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		612916812B2C974500726DA7 /* LocalBirdsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916802B2C974500726DA7 /* LocalBirdsApp.swift */; };
-		612916832B2C974500726DA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916822B2C974500726DA7 /* ContentView.swift */; };
 		612916852B2C974600726DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612916842B2C974600726DA7 /* Assets.xcassets */; };
 		612916882B2C974600726DA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612916872B2C974600726DA7 /* Preview Assets.xcassets */; };
 		612916902B2C983400726DA7 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6129168F2B2C983400726DA7 /* Symbols.swift */; };
 		612916922B2C9A9000726DA7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916912B2C9A9000726DA7 /* Theme.swift */; };
 		612916A62B2D5DAF00726DA7 /* BirdsStaticData.json in Resources */ = {isa = PBXBuildFile; fileRef = 612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */; };
+		612916A82B2D5E8D00726DA7 /* SingleBirdData.json in Resources */ = {isa = PBXBuildFile; fileRef = 612916A72B2D5E8D00726DA7 /* SingleBirdData.json */; };
+		612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916A92B2D65BF00726DA7 /* SingleBirdResponse.swift */; };
+		612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916AD2B2D6A0A00726DA7 /* StaticJSONMapper.swift */; };
+		612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916AF2B2D6EB100726DA7 /* AllBirdsResponse.swift */; };
+		612916B22B2D725300726DA7 /* BirdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B12B2D725300726DA7 /* BirdsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6129167D2B2C974500726DA7 /* LocalBirds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalBirds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		612916802B2C974500726DA7 /* LocalBirdsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBirdsApp.swift; sourceTree = "<group>"; };
-		612916822B2C974500726DA7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		612916842B2C974600726DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		612916872B2C974600726DA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6129168F2B2C983400726DA7 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		612916912B2C9A9000726DA7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		612916A32B2CA0CB00726DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BirdsStaticData.json; sourceTree = "<group>"; };
+		612916A72B2D5E8D00726DA7 /* SingleBirdData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleBirdData.json; sourceTree = "<group>"; };
+		612916A92B2D65BF00726DA7 /* SingleBirdResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBirdResponse.swift; sourceTree = "<group>"; };
+		612916AD2B2D6A0A00726DA7 /* StaticJSONMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticJSONMapper.swift; sourceTree = "<group>"; };
+		612916AF2B2D6EB100726DA7 /* AllBirdsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllBirdsResponse.swift; sourceTree = "<group>"; };
+		612916B12B2D725300726DA7 /* BirdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +71,6 @@
 				612916932B2C9C5600726DA7 /* Base */,
 				6129168E2B2C97BD00726DA7 /* Resources */,
 				612916802B2C974500726DA7 /* LocalBirdsApp.swift */,
-				612916822B2C974500726DA7 /* ContentView.swift */,
 				612916842B2C974600726DA7 /* Assets.xcassets */,
 				612916862B2C974600726DA7 /* Preview Content */,
 			);
@@ -91,6 +98,8 @@
 		612916932B2C9C5600726DA7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				612916AC2B2D69EF00726DA7 /* Mapper */,
+				612916AB2B2D69E200726DA7 /* Models */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 		612916992B2C9CA900726DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				612916B12B2D725300726DA7 /* BirdsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -154,6 +164,7 @@
 		6129169A2B2C9CCE00726DA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916AF2B2D6EB100726DA7 /* AllBirdsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +207,7 @@
 		612916A02B2C9D0B00726DA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916A92B2D65BF00726DA7 /* SingleBirdResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,8 +230,24 @@
 			isa = PBXGroup;
 			children = (
 				612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */,
+				612916A72B2D5E8D00726DA7 /* SingleBirdData.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		612916AB2B2D69E200726DA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		612916AC2B2D69EF00726DA7 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				612916AD2B2D6A0A00726DA7 /* StaticJSONMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612916A82B2D5E8D00726DA7 /* SingleBirdData.json in Resources */,
 				612916882B2C974600726DA7 /* Preview Assets.xcassets in Resources */,
 				612916A62B2D5DAF00726DA7 /* BirdsStaticData.json in Resources */,
 				612916852B2C974600726DA7 /* Assets.xcassets in Resources */,
@@ -294,8 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
+				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
+				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,
+				612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */,
+				612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */,
 				612916922B2C9A9000726DA7 /* Theme.swift in Sources */,
-				612916832B2C974500726DA7 /* ContentView.swift in Sources */,
 				612916812B2C974500726DA7 /* LocalBirdsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
