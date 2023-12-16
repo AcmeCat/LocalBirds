@@ -13,6 +13,7 @@
 		612916882B2C974600726DA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612916872B2C974600726DA7 /* Preview Assets.xcassets */; };
 		612916902B2C983400726DA7 /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6129168F2B2C983400726DA7 /* Symbols.swift */; };
 		612916922B2C9A9000726DA7 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916912B2C9A9000726DA7 /* Theme.swift */; };
+		612916A62B2D5DAF00726DA7 /* BirdsStaticData.json in Resources */ = {isa = PBXBuildFile; fileRef = 612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,8 @@
 		612916872B2C974600726DA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6129168F2B2C983400726DA7 /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		612916912B2C9A9000726DA7 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		612916A32B2CA0CB00726DA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BirdsStaticData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 		6129167F2B2C974500726DA7 /* LocalBirds */ = {
 			isa = PBXGroup;
 			children = (
+				612916A32B2CA0CB00726DA7 /* Info.plist */,
 				612916942B2C9C5F00726DA7 /* Features */,
 				612916932B2C9C5600726DA7 /* Base */,
 				6129168E2B2C97BD00726DA7 /* Resources */,
@@ -77,6 +81,7 @@
 		6129168E2B2C97BD00726DA7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				612916A42B2D5D6400726DA7 /* JSON */,
 				6129168F2B2C983400726DA7 /* Symbols.swift */,
 				612916912B2C9A9000726DA7 /* Theme.swift */,
 			);
@@ -209,6 +214,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		612916A42B2D5D6400726DA7 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				612916882B2C974600726DA7 /* Preview Assets.xcassets in Resources */,
+				612916A62B2D5DAF00726DA7 /* BirdsStaticData.json in Resources */,
 				612916852B2C974600726DA7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,11 +433,12 @@
 				DEVELOPMENT_TEAM = C256H3ZXQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalBirds/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +463,12 @@
 				DEVELOPMENT_TEAM = C256H3ZXQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LocalBirds/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
