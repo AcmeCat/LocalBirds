@@ -31,11 +31,6 @@ struct BirdsView: View {
                 }
             }
             .navigationTitle("Birds")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    create
-                }
-            }
             .onAppear {
                 do {
                     let res = try StaticJSONMapper.decode(file: "BirdsStaticData", type: AllBirdsResponse.self)
@@ -53,19 +48,4 @@ struct BirdsView: View {
     BirdsView()
 }
 
-private extension BirdsView {
-    
-    var create: some View {
-        Button {
-            
-        } label: {
-            Symbols.plus
-                .font(
-                    .system(.headline, design: .rounded)
-                    .bold()
-                )
-        }
-    }
-    
-    
-}
+
