@@ -1,0 +1,23 @@
+{
+    "entities": [
+        {
+            "name": "first checklist",
+            "id": "35366da5-afc4-4cc7-8be1-34d5e0ba5b4e"
+        },
+        {
+            "name": "checklist x",
+            "id": "356410e9-90a5-4090-8790-315e2aca17ec"
+        },
+        {
+            "name": "first checklist",
+            "id": "55d4426e-3496-4ded-883a-6941c5e25ff0"
+        },
+        {
+            "name": "another checklist",
+            "id": "b97565a4-189e-40dd-9550-5096bf6e263d"
+        }
+    ],
+    "total": 4,
+    "page": 1,
+    "pageSize": 25
+}

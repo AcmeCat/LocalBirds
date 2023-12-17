@@ -28,6 +28,7 @@
 		612916CF2B2E8DFB00726DA7 /* SightingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916CE2B2E8DFB00726DA7 /* SightingsResponse.swift */; };
 		612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D02B2E8E2D00726DA7 /* SightingsView.swift */; };
 		612916D32B2E8E7400726DA7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D22B2E8E7400726DA7 /* SettingsView.swift */; };
+		612916D52B2E906900726DA7 /* SightingsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 612916D42B2E906900726DA7 /* SightingsData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		612916CE2B2E8DFB00726DA7 /* SightingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsResponse.swift; sourceTree = "<group>"; };
 		612916D02B2E8E2D00726DA7 /* SightingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsView.swift; sourceTree = "<group>"; };
 		612916D22B2E8E7400726DA7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		612916D42B2E906900726DA7 /* SightingsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SightingsData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 				612916A52B2D5DAF00726DA7 /* BirdsStaticData.json */,
 				612916A72B2D5E8D00726DA7 /* SingleBirdData.json */,
 				612916CC2B2E8BEA00726DA7 /* ChecklistsData.json */,
+				612916D42B2E906900726DA7 /* SightingsData.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612916D52B2E906900726DA7 /* SightingsData.json in Resources */,
 				612916A82B2D5E8D00726DA7 /* SingleBirdData.json in Resources */,
 				612916882B2C974600726DA7 /* Preview Assets.xcassets in Resources */,
 				612916A62B2D5DAF00726DA7 /* BirdsStaticData.json in Resources */,

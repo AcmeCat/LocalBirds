@@ -1,0 +1,28 @@
+{
+    "entities": [
+        {
+            "birdId": "1",
+            "date-time": "2023-12-17T01:56:18.821Z",
+            "description": "Birds lelee",
+            "location": "the beach",
+            "checklistId": "cl0001"
+        },
+        {
+            "birdId": "2",
+            "date-time": "2023-12-17T02:11:15.029Z",
+            "description": "new birdy",
+            "location": "somewhere",
+            "checklistId": "cl0001"
+        },
+        {
+            "birdId": "5",
+            "date-time": "2023-12-17T01:59:17.485Z",
+            "description": "Birds  ahoy",
+            "location": "the place",
+            "checklistId": "cl0001"
+        }
+    ],
+    "total": 3,
+    "page": 1,
+    "pageSize": 100
+}
