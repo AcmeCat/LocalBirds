@@ -21,6 +21,9 @@
 		612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B32B2D7F3200726DA7 /* BirdCardView.swift */; };
 		612916B72B2D80C700726DA7 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B62B2D80C700726DA7 /* PillView.swift */; };
 		612916B92B2D892E00726DA7 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916B82B2D892E00726DA7 /* DetailView.swift */; };
+		612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916BE2B2DE7D500726DA7 /* ChecklistView.swift */; };
+		612916C92B2E871C00726DA7 /* AllChecklistsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916C82B2E871C00726DA7 /* AllChecklistsResponse.swift */; };
+		612916CB2B2E882900726DA7 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916CA2B2E882900726DA7 /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		612916B32B2D7F3200726DA7 /* BirdCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdCardView.swift; sourceTree = "<group>"; };
 		612916B62B2D80C700726DA7 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		612916B82B2D892E00726DA7 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		612916BE2B2DE7D500726DA7 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
+		612916C82B2E871C00726DA7 /* AllChecklistsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllChecklistsResponse.swift; sourceTree = "<group>"; };
+		612916CA2B2E882900726DA7 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,12 @@
 		612916942B2C9C5F00726DA7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				612916C42B2E85F800726DA7 /* Create Sighting */,
+				612916C02B2E85A700726DA7 /* Create Checklist */,
+				612916BA2B2DE76100726DA7 /* Sightings */,
 				612916982B2C9C9900726DA7 /* Settings */,
 				612916972B2C9C8B00726DA7 /* Detail */,
-				612916962B2C9C7F00726DA7 /* Create */,
+				612916962B2C9C7F00726DA7 /* Checklists */,
 				612916952B2C9C6E00726DA7 /* Birds */,
 			);
 			path = Features;
@@ -132,14 +141,14 @@
 			path = Birds;
 			sourceTree = "<group>";
 		};
-		612916962B2C9C7F00726DA7 /* Create */ = {
+		612916962B2C9C7F00726DA7 /* Checklists */ = {
 			isa = PBXGroup;
 			children = (
 				6129169E2B2C9CF700726DA7 /* View Models */,
 				6129169D2B2C9CEE00726DA7 /* Models */,
 				6129169C2B2C9CE200726DA7 /* Views */,
 			);
-			path = Create;
+			path = Checklists;
 			sourceTree = "<group>";
 		};
 		612916972B2C9C8B00726DA7 /* Detail */ = {
@@ -187,6 +196,7 @@
 		6129169C2B2C9CE200726DA7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				612916BE2B2DE7D500726DA7 /* ChecklistView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -194,6 +204,7 @@
 		6129169D2B2C9CEE00726DA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916C82B2E871C00726DA7 /* AllChecklistsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,8 +274,102 @@
 			isa = PBXGroup;
 			children = (
 				612916B62B2D80C700726DA7 /* PillView.swift */,
+				612916CA2B2E882900726DA7 /* BackgroundView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		612916BA2B2DE76100726DA7 /* Sightings */ = {
+			isa = PBXGroup;
+			children = (
+				612916BD2B2DE79400726DA7 /* View Models */,
+				612916BC2B2DE78B00726DA7 /* Models */,
+				612916BB2B2DE78000726DA7 /* Views */,
+			);
+			path = Sightings;
+			sourceTree = "<group>";
+		};
+		612916BB2B2DE78000726DA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		612916BC2B2DE78B00726DA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		612916BD2B2DE79400726DA7 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		612916C02B2E85A700726DA7 /* Create Checklist */ = {
+			isa = PBXGroup;
+			children = (
+				612916C32B2E85E900726DA7 /* View Models */,
+				612916C22B2E85DF00726DA7 /* Models */,
+				612916C12B2E85D200726DA7 /* Views */,
+			);
+			path = "Create Checklist";
+			sourceTree = "<group>";
+		};
+		612916C12B2E85D200726DA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		612916C22B2E85DF00726DA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		612916C32B2E85E900726DA7 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		612916C42B2E85F800726DA7 /* Create Sighting */ = {
+			isa = PBXGroup;
+			children = (
+				612916C72B2E861900726DA7 /* View Models */,
+				612916C62B2E861100726DA7 /* Models */,
+				612916C52B2E860900726DA7 /* Views */,
+			);
+			path = "Create Sighting";
+			sourceTree = "<group>";
+		};
+		612916C52B2E860900726DA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		612916C62B2E861100726DA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		612916C72B2E861900726DA7 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,14 +446,17 @@
 			files = (
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
 				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
+				612916CB2B2E882900726DA7 /* BackgroundView.swift in Sources */,
 				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,
 				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,
 				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
+				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
 				612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */,
 				612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */,
 				612916922B2C9A9000726DA7 /* Theme.swift in Sources */,
 				612916812B2C974500726DA7 /* LocalBirdsApp.swift in Sources */,
+				612916C92B2E871C00726DA7 /* AllChecklistsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
