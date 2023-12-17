@@ -15,7 +15,7 @@ struct BirdsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                background
+                BackgroundView()
                 ScrollView {
                     LazyVGrid(columns: columns, 
                               spacing: 16)  {
@@ -54,11 +54,6 @@ struct BirdsView: View {
 }
 
 private extension BirdsView {
-    
-    var background: some View {
-        Theme.background
-            .ignoresSafeArea(edges: .top)
-    }
     
     var create: some View {
         Button {
