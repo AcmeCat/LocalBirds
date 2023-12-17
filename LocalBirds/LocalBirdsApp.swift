@@ -17,6 +17,11 @@ struct LocalBirdsApp: App {
                         Symbols.bird
                         Text("Birds")
                     }
+                ChecklistView()
+                    .tabItem {
+                        Symbols.list
+                        Text("Lists")
+                    }
             }
         }
     }
