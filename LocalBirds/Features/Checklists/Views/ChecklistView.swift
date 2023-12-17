@@ -20,10 +20,33 @@ struct ChecklistView: View {
                     }
                 }
             }
+            .navigationTitle("Checklists")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    create
+                }
+            }
         }
     }
 }
 
 #Preview {
     ChecklistView()
+}
+
+private extension ChecklistView {
+    
+    var create: some View {
+        Button {
+            
+        } label: {
+            Symbols.plus
+                .font(
+                    .system(.headline, design: .rounded)
+                    .bold()
+                )
+        }
+    }
+    
+    
 }
