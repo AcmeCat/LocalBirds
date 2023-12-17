@@ -20,7 +20,12 @@ struct LocalBirdsApp: App {
                 ChecklistView()
                     .tabItem {
                         Symbols.list
-                        Text("Lists")
+                        Text("Checklists")
+                    }
+                SettingsView()
+                    .tabItem {
+                        Symbols.gear
+                        Text("Settings")
                     }
             }
         }
