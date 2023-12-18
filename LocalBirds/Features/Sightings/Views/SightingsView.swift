@@ -37,8 +37,8 @@ struct SightingsView: View {
             .onAppear {
                 vm.fetchDetails(for: checklistId)
             }
-            .sheet(isPresented: $shouldShowCreate) {
-                CreateSightingView()
+            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
+                CreateSightingView(checklistId: checklistId)
             }
         }
     }
@@ -60,6 +60,10 @@ private extension SightingsView {
                     .bold()
                 )
         }
+    }
+    
+    func fetch(){
+        vm.fetchDetails(for: checklistId)
     }
     
     

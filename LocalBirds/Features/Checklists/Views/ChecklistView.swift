@@ -41,6 +41,9 @@ struct ChecklistView: View {
             .sheet(isPresented: $shouldShowCreate) {
                 CreateChecklistView()
             }
+            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
+                CreateChecklistView()
+            }
         }
     }
 }
@@ -63,5 +66,8 @@ private extension ChecklistView {
         }
     }
     
+    func fetch() {
+        vm.fetchChecklists()
+    }
     
 }
