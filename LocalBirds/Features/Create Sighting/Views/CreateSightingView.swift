@@ -9,18 +9,20 @@ import SwiftUI
 
 struct CreateSightingView: View {
     
+    let checklistId: String
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var vm = CreateSightingViewModel()
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Bird ID", text: .constant(""))
-                TextField("Description", text: .constant(""))
-                TextField("Location", text: .constant(""))
+                TextField("Bird ID", text: $vm.sightingBirdId)
+                TextField("Description", text: $vm.sighting.description)
+                TextField("Location", text: $vm.sighting.location)
                 
                 Section {
                     Button("Submit") {
-                        //TODO: Handle
+                        vm.create(checklistId: checklistId)
                     }
                 }
             }
@@ -30,12 +32,22 @@ struct CreateSightingView: View {
                     cancel
                 }
             }
+            .onChange(of: vm.state) { formState in
+                if formState == .successful {
+                    dismiss()
+                }
+            }
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    vm.create(checklistId: checklistId)
+                }
+            }
         }
     }
 }
 
 #Preview {
-    CreateSightingView()
+    CreateSightingView(checklistId: "0")
 }
 
 private extension CreateSightingView {
