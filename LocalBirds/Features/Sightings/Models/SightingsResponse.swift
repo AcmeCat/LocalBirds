@@ -8,14 +8,14 @@
 import Foundation
 
 
-// MARK: - Sightings
-struct Sightings: Codable {
-    let entities: [Entity]
+// MARK: - SightingsList
+struct SightingsResponse: Codable {
+    let entities: [Sighting]
     let total, page, pageSize: Int
 }
 
 // MARK: - Entity
-struct Entity: Codable {
+struct Sighting: Codable {
     let birdID, dateTime, description, location: String
     let checklistID: String
 
