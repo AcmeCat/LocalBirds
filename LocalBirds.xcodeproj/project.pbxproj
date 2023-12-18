@@ -37,6 +37,7 @@
 		612916E22B2FE11200726DA7 /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E12B2FE11200726DA7 /* PrivateConstants.swift */; };
 		612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */; };
 		612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */; };
+		612916E82B300D0900726DA7 /* ChecklistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E72B300D0900726DA7 /* ChecklistsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		612916E12B2FE11200726DA7 /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
 		612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsViewModel.swift; sourceTree = "<group>"; };
 		612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		612916E72B300D0900726DA7 /* ChecklistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 		6129169E2B2C9CF700726DA7 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916E72B300D0900726DA7 /* ChecklistsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				612916DB2B2F3A4F00726DA7 /* CreateChecklistView.swift in Sources */,
 				612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */,
 				612916E02B2FCDD100726DA7 /* APINetworkingManager.swift in Sources */,
+				612916E82B300D0900726DA7 /* ChecklistsViewModel.swift in Sources */,
 				612916D72B2EC42E00726DA7 /* ChecklistItemView.swift in Sources */,
 				612916DD2B2FC86300726DA7 /* CreateSightingView.swift in Sources */,
 				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,

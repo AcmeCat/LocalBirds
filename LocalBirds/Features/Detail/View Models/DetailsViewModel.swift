@@ -11,7 +11,7 @@ final class DetailsViewModel: ObservableObject {
     
     @Published private(set) var birdInfo: SingleBirdResponse?
     
-    func fetchDetails(birdId: Int) {
+    func fetchDetails(for birdId: Int) {
         APINetworkingManager.shared.request("https://nuthatch.lastelm.software/birds/\(birdId)", type: SingleBirdResponse.self) { [weak self] res in
             DispatchQueue.main.async {
                 switch res {

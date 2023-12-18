@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChecklistView: View {
     
-    @State private var checklists: [Checklist] = []
+    @StateObject private var vm = ChecklistsViewModel()
     @State private var shouldShowCreate = false
     
     var body: some View {
@@ -18,7 +18,7 @@ struct ChecklistView: View {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ForEach (checklists, id: \.id) { checklist in
+                        ForEach (vm.checklists, id: \.id) { checklist in
                             NavigationLink {
                                 SightingsView()
                             } label: {
@@ -36,13 +36,7 @@ struct ChecklistView: View {
                 }
             }
             .onAppear {
-                do {
-                    let res = try StaticJSONMapper.decode(file: "ChecklistsData", type: AllChecklistsResponse.self)
-                    checklists = res.entities
-                } catch {
-                    //handle errors
-                    print(error)
-                }
+                vm.fetchChecklists()
             }
             .sheet(isPresented: $shouldShowCreate) {
                 CreateChecklistView()

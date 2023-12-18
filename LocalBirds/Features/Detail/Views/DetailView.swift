@@ -35,7 +35,7 @@ struct DetailView: View {
         }
         .navigationTitle("Details")
         .onAppear {
-            vm.fetchDetails(birdId: birdId)
+            vm.fetchDetails(for: birdId)
         }
     }
 }
