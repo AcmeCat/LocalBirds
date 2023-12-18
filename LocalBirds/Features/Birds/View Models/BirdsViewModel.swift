@@ -10,6 +10,8 @@ import Foundation
 final class BirdsViewModel: ObservableObject {
     
     @Published private(set) var birds: [Bird] = []
+    @Published private(set) var error: APINetworkingManager.NetworkingError?
+    @Published var hasError = false
     
     func fetchBirds() {
         APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { [weak self] res in
@@ -18,7 +20,8 @@ final class BirdsViewModel: ObservableObject {
                 case .success(let result):
                     self?.birds = result.entities
                 case .failure(let error):
-                    print(error)
+                    self?.hasError = true
+                    self?.error = error as? APINetworkingManager.NetworkingError
                 }
             }
         }

@@ -36,6 +36,11 @@ struct BirdsView: View {
             .onAppear {
                 vm.fetchBirds()
             }
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    vm.fetchBirds()
+                }
+            }
         }
     }
 }
