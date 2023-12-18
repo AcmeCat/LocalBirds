@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - Checklists
-struct Checklists: Codable {
-    let checklists: [Checklist]
+struct AllChecklistsResponse: Codable {
+    let entities: [Checklist]
     let total, page, pageSize: Int
 }
 
