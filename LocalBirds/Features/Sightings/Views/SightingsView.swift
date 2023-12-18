@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SightingsView: View {
     
-    @State private var sightings: [Sighting] = []
+    let checklistId: String
+    @StateObject private var vm = SightingsViewModel()
     @State private var shouldShowCreate = false
     
     var body: some View {
@@ -18,7 +19,7 @@ struct SightingsView: View {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ForEach (sightings, id: \.birdID) { sighting in
+                        ForEach (vm.sightings, id: \.birdID) { sighting in
                             
                                 SightingsItemView(sighting: sighting)
                             
@@ -34,13 +35,7 @@ struct SightingsView: View {
                 }
             }
             .onAppear {
-                do {
-                    let res = try StaticJSONMapper.decode(file: "SightingsData", type: SightingsResponse.self)
-                    sightings = res.entities
-                } catch {
-                    //handle errors
-                    print(error)
-                }
+                vm.fetchDetails(for: checklistId)
             }
             .sheet(isPresented: $shouldShowCreate) {
                 CreateSightingView()
@@ -50,7 +45,7 @@ struct SightingsView: View {
 }
 
 #Preview {
-    SightingsView()
+    SightingsView(checklistId: "")
 }
 
 private extension SightingsView {

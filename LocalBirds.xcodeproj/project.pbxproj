@@ -38,6 +38,7 @@
 		612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */; };
 		612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */; };
 		612916E82B300D0900726DA7 /* ChecklistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E72B300D0900726DA7 /* ChecklistsViewModel.swift */; };
+		612916EA2B300EEE00726DA7 /* SightingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E92B300EEE00726DA7 /* SightingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsViewModel.swift; sourceTree = "<group>"; };
 		612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		612916E72B300D0900726DA7 /* ChecklistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsViewModel.swift; sourceTree = "<group>"; };
+		612916E92B300EEE00726DA7 /* SightingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 		612916BD2B2DE79400726DA7 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916E92B300EEE00726DA7 /* SightingsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
+				612916EA2B300EEE00726DA7 /* SightingsViewModel.swift in Sources */,
 				612916E22B2FE11200726DA7 /* PrivateConstants.swift in Sources */,
 				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
 				612916CB2B2E882900726DA7 /* BackgroundView.swift in Sources */,

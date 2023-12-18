@@ -20,7 +20,7 @@ struct ChecklistView: View {
                     VStack {
                         ForEach (vm.checklists, id: \.id) { checklist in
                             NavigationLink {
-                                SightingsView()
+                                SightingsView(checklistId: checklist.id)
                             } label: {
                                 ChecklistItemView(checklist: checklist)
                             }
