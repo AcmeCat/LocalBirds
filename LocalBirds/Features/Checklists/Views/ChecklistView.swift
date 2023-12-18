@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct ChecklistView: View {
+    
+    @State private var checklists: [Checklist] = []
+    @State private var shouldShowCreate = false
+    
     var body: some View {
         NavigationView {
             ZStack {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ForEach (0...5, id: \.self) { item in
-                            Text("\(item)")
+                        ForEach (checklists, id: \.id) { checklist in
+                            NavigationLink {
+                                SightingsView()
+                            } label: {
+                                ChecklistItemView(checklist: checklist)
+                            }
                         }
                     }
+                    .padding()
                 }
             }
             .navigationTitle("Checklists")
@@ -25,6 +34,18 @@ struct ChecklistView: View {
                 ToolbarItem(placement: .primaryAction) {
                     create
                 }
+            }
+            .onAppear {
+                do {
+                    let res = try StaticJSONMapper.decode(file: "ChecklistsData", type: AllChecklistsResponse.self)
+                    checklists = res.entities
+                } catch {
+                    //handle errors
+                    print(error)
+                }
+            }
+            .sheet(isPresented: $shouldShowCreate) {
+                CreateChecklistView()
             }
         }
     }
@@ -38,7 +59,7 @@ private extension ChecklistView {
     
     var create: some View {
         Button {
-            
+            shouldShowCreate.toggle()
         } label: {
             Symbols.plus
                 .font(
