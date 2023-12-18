@@ -10,15 +10,16 @@ import SwiftUI
 struct CreateChecklistView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var vm = CreateChecklistViewModel()
     
     var body: some View {
         NavigationView {
             Form {
-                TextField("Checklist Name", text: .constant(""))
+                TextField("Checklist Name", text: $vm.checklist.name)
                 
                 Section {
                     Button("Submit") {
-                        //TODO: Handle
+                        vm.create()
                     }
                 }
             }
@@ -26,6 +27,16 @@ struct CreateChecklistView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     cancel
+                }
+            }
+            .onChange(of: vm.state) { formState in
+                if formState == .successful {
+                    dismiss()
+                }
+            }
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    vm.create()
                 }
             }
         }
