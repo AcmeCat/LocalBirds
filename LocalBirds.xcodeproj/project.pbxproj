@@ -36,6 +36,7 @@
 		612916E02B2FCDD100726DA7 /* APINetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */; };
 		612916E22B2FE11200726DA7 /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E12B2FE11200726DA7 /* PrivateConstants.swift */; };
 		612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */; };
+		612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkingManager.swift; sourceTree = "<group>"; };
 		612916E12B2FE11200726DA7 /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
 		612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsViewModel.swift; sourceTree = "<group>"; };
+		612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 		612916A12B2C9D1400726DA7 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916E52B2FF23C00726DA7 /* DetailsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				612916D72B2EC42E00726DA7 /* ChecklistItemView.swift in Sources */,
 				612916DD2B2FC86300726DA7 /* CreateSightingView.swift in Sources */,
 				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,
+				612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */,
 				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
 				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,

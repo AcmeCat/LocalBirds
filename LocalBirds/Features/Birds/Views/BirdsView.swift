@@ -23,7 +23,7 @@ struct BirdsView: View {
                               spacing: 16)  {
                         ForEach(vm.birds, id: \.id) { bird in
                             NavigationLink {
-                                DetailView()
+                                DetailView(birdId: bird.id)
                             } label: {
                                 BirdCardView(bird: bird)
                             }

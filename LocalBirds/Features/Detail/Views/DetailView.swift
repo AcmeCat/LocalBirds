@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DetailView: View {
     
-    @State private var birdInfo: SingleBirdResponse?
+    let birdId: Int
+    @StateObject private var vm = DetailsViewModel()
     
     var body: some View {
         ZStack {
@@ -34,18 +35,14 @@ struct DetailView: View {
         }
         .navigationTitle("Details")
         .onAppear {
-            do {
-                birdInfo = try StaticJSONMapper.decode(file: "SingleBirdData", type: SingleBirdResponse.self)
-            } catch {
-                print(error)
-            }
+            vm.fetchDetails(birdId: birdId)
         }
     }
 }
 
 #Preview {
     NavigationView {
-        DetailView()
+        DetailView(birdId: 1)
     }
 }
 
@@ -62,7 +59,7 @@ private extension DetailView {
     var mainInfo: some View {
         VStack(alignment: .leading, spacing: 8) {
             
-            PillView(id: birdInfo?.id ?? 0)
+            PillView(id: vm.birdInfo?.id ?? 0)
             
             Group {
                 firstname
@@ -79,7 +76,7 @@ private extension DetailView {
             .font(
                 .system(.body, design: .rounded)    .weight(.semibold)
             )
-        Text(birdInfo?.name ?? "-")
+        Text(vm.birdInfo?.name ?? "-")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -92,7 +89,7 @@ private extension DetailView {
             .font(
                 .system(.body, design: .rounded)    .weight(.semibold)
             )
-        Text(birdInfo?.sciName ?? "-")
+        Text(vm.birdInfo?.sciName ?? "-")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -105,7 +102,7 @@ private extension DetailView {
             .font(
                 .system(.body, design: .rounded)    .weight(.semibold)
             )
-        Text(birdInfo?.region.first ?? "-")
+        Text(vm.birdInfo?.region.first ?? "-")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -139,7 +136,7 @@ private extension DetailView {
     
     @ViewBuilder
     var imageBlock: some View {
-        if let imageString = birdInfo?.images.first,
+        if let imageString = vm.birdInfo?.images.first,
            let imageUrl = URL(string: imageString) {
             AsyncImage(url: imageUrl) { image in
                 image
