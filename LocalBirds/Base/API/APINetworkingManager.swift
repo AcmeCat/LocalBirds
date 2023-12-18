@@ -14,7 +14,8 @@ final class APINetworkingManager { //class must be final to eliminate children
     static let shared = APINetworkingManager(kp: PrivateConstants.APIConstants.keyPair)
     private init(kp: APIKeyPair) {keypair = kp}
     
-    func request<T: Codable>(_ absoluteURL: String, 
+    func request<T: Codable>(methodType: MethodType = .GET,
+                             _ absoluteURL: String,
                              type: T.Type,
                              completion: @escaping (Result<T, Error>) -> Void) {
         
@@ -23,8 +24,7 @@ final class APINetworkingManager { //class must be final to eliminate children
             completion(.failure(NetworkingError.invalidURL))
             return
         }
-        var request = URLRequest(url: url)
-        request.addValue(keypair.value, forHTTPHeaderField: keypair.key)
+        let request = buildRequest(from: url, methodType: methodType)
         
         //build task to execute request
         let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
@@ -63,14 +63,94 @@ final class APINetworkingManager { //class must be final to eliminate children
         // !!!IMPORTANT!!! - starts the task
         dataTask.resume()
     }
+    
+    func request(methodType: MethodType = .GET,
+                 _ absoluteURL: String,
+                 completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        //build request
+        guard let url = URL(string: absoluteURL) else {
+            completion(.failure(NetworkingError.invalidURL))
+            return
+        }
+        let request = buildRequest(from: url, methodType: methodType)
+        
+        //build task to execute request
+        let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
+            
+            //handle returned errors
+            if err != nil {
+                completion(.failure(NetworkingError.custom(error: err!)))
+                return
+            }
+            
+            //handle responses outside of success range
+            guard let res = res as? HTTPURLResponse,
+                  (200...300) ~= res.statusCode else { //pattern match to response status codes
+                let statusCode = (res as! HTTPURLResponse).statusCode
+                completion(.failure(NetworkingError.invalidStatusCode(statusCode: statusCode)))
+                return
+            }
+            
+            completion(.success(()))
+        }
+        
+        // !!!IMPORTANT!!! - starts the task
+        dataTask.resume()
+    }
 }
 
 extension APINetworkingManager {
-    enum NetworkingError: Error {
+    enum NetworkingError: LocalizedError {
         case invalidURL
         case custom(error: Error)
         case invalidStatusCode(statusCode: Int)
         case invalidData
         case faledToDecode(error: Error)
+    }
+}
+
+extension APINetworkingManager.NetworkingError {
+    var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "URL isn't valid"
+        case .invalidStatusCode(let code):
+            return "Status code (\(code)) is not in range"
+        case .invalidData:
+            return "Response data is invalid"
+        case .faledToDecode(let err):
+            return "Failed to decode: \(err.localizedDescription)"
+        case .custom(let err):
+            return "Something went wrong: \(err.localizedDescription)"
+        }
+    }
+}
+
+extension APINetworkingManager {
+    enum MethodType {
+        case GET
+        case POST(data: Data?)
+    }
+}
+
+private extension APINetworkingManager {
+    func buildRequest(from url: URL,
+                      methodType: MethodType) -> URLRequest {
+        
+        var request = URLRequest(url: url)
+        
+        switch methodType {
+        case .GET:
+            request.httpMethod = "GET"
+        case .POST(let data):
+            request.httpMethod = "POST"
+            request.httpBody = data
+        }
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(keypair.value, forHTTPHeaderField: keypair.key) // optional: use with APIs that need keys
+        
+        return request
     }
 }
