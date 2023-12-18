@@ -32,12 +32,14 @@ struct BirdsView: View {
             }
             .navigationTitle("Birds")
             .onAppear {
-                do {
-                    let res = try StaticJSONMapper.decode(file: "BirdsStaticData", type: AllBirdsResponse.self)
-                    birds = res.entities
-                } catch {
-                    //handle errors
-                    print(error)
+                
+                APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { res in
+                    switch res {
+                    case .success(let result):
+                        birds = result.entities
+                    case .failure(let error):
+                        print(error)
+                    }
                 }
             }
         }
