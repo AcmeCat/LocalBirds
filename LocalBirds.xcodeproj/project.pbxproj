@@ -35,6 +35,7 @@
 		612916DD2B2FC86300726DA7 /* CreateSightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916DC2B2FC86300726DA7 /* CreateSightingView.swift */; };
 		612916E02B2FCDD100726DA7 /* APINetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */; };
 		612916E22B2FE11200726DA7 /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E12B2FE11200726DA7 /* PrivateConstants.swift */; };
+		612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		612916DC2B2FC86300726DA7 /* CreateSightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSightingView.swift; sourceTree = "<group>"; };
 		612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APINetworkingManager.swift; sourceTree = "<group>"; };
 		612916E12B2FE11200726DA7 /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
+		612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		6129169B2B2C9CD700726DA7 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				612916E32B2FEC4200726DA7 /* BirdsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
 				612916D92B2F358700726DA7 /* SightingsItemView.swift in Sources */,
+				612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */,
 				612916D32B2E8E7400726DA7 /* SettingsView.swift in Sources */,
 				612916AA2B2D65BF00726DA7 /* SingleBirdResponse.swift in Sources */,
 				612916AE2B2D6A0A00726DA7 /* StaticJSONMapper.swift in Sources */,

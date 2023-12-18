@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct BirdsView: View {
+    
     private let columns = Array(repeating: GridItem(.flexible()),
                                 count: 2)
-    @State private var birds: [Bird] = []
+    
+    @StateObject private var vm = BirdsViewModel()
     
     var body: some View {
         NavigationView {
@@ -19,7 +21,7 @@ struct BirdsView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, 
                               spacing: 16)  {
-                        ForEach(birds, id: \.id) { bird in
+                        ForEach(vm.birds, id: \.id) { bird in
                             NavigationLink {
                                 DetailView()
                             } label: {
@@ -32,15 +34,7 @@ struct BirdsView: View {
             }
             .navigationTitle("Birds")
             .onAppear {
-                
-                APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { res in
-                    switch res {
-                    case .success(let result):
-                        birds = result.entities
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
+                vm.fetchBirds()
             }
         }
     }
