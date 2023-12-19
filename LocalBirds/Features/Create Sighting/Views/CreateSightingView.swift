@@ -17,9 +17,17 @@ struct CreateSightingView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Bird ID", text: $vm.sightingBirdId)
-                TextField("Description", text: $vm.sighting.description)
-                TextField("Location", text: $vm.sighting.location)
+                Section {
+                    TextField("Bird ID", text: $vm.sightingBirdId)
+                    TextField("Description", text: $vm.sighting.description)
+                    TextField("Location", text: $vm.sighting.location)
+                } footer: {
+                    if case .validation(let err) = vm.error,
+                       let errorDesc = err.errorDescription {
+                        Text(errorDesc)
+                            .foregroundStyle(.red)
+                    }
+                }
                 
                 Section {
                     Button("Submit") {
