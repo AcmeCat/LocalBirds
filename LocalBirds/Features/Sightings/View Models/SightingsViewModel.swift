@@ -10,15 +10,21 @@ import Foundation
 final class SightingsViewModel: ObservableObject {
     
     @Published private(set) var sightings: [Sighting] = []
+    @Published private(set) var error: APINetworkingManager.NetworkingError?
+    @Published private(set) var isLoading = false
+    @Published var hasError = false
     
     func fetchDetails(for checklistId: String) {
+        isLoading = true
         APINetworkingManager.shared.request("https://nuthatch.lastelm.software/checklists/\(checklistId)/entries", type: SightingsResponse.self) { [weak self] res in
             DispatchQueue.main.async {
+                defer { self?.isLoading = false } //resets loading state after all other processes
                 switch res {
                 case .success(let result):
                     self?.sightings = result.entities
                 case .failure(let error):
-                    print(error)
+                    self?.hasError = true
+                    self?.error = error as? APINetworkingManager.NetworkingError
                 }
             }
         }

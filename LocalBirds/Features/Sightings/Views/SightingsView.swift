@@ -17,15 +17,19 @@ struct SightingsView: View {
         NavigationView {
             ZStack {
                 BackgroundView()
-                ScrollView {
-                    VStack {
-                        ForEach (vm.sightings, id: \.birdID) { sighting in
-                            
+                if vm.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        VStack {
+                            ForEach (vm.sightings, id: \.birdID) { sighting in
+                                
                                 SightingsItemView(sighting: sighting)
-                            
+                                
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Sightings")
@@ -36,6 +40,11 @@ struct SightingsView: View {
             }
             .onAppear {
                 vm.fetchDetails(for: checklistId)
+            }
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    vm.fetchDetails(for: checklistId)
+                }
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateSightingView(checklistId: checklistId)
