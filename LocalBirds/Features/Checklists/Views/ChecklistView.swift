@@ -16,17 +16,21 @@ struct ChecklistView: View {
         NavigationView {
             ZStack {
                 BackgroundView()
-                ScrollView {
-                    VStack {
-                        ForEach (vm.checklists, id: \.id) { checklist in
-                            NavigationLink {
-                                SightingsView(checklistId: checklist.id)
-                            } label: {
-                                ChecklistItemView(checklist: checklist)
+                if vm.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        VStack {
+                            ForEach (vm.checklists, id: \.id) { checklist in
+                                NavigationLink {
+                                    SightingsView(checklistId: checklist.id)
+                                } label: {
+                                    ChecklistItemView(checklist: checklist)
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Checklists")
@@ -38,8 +42,10 @@ struct ChecklistView: View {
             .onAppear {
                 vm.fetchChecklists()
             }
-            .sheet(isPresented: $shouldShowCreate) {
-                CreateChecklistView()
+            .alert(isPresented: $vm.hasError, error: vm.error) {
+                Button("Retry") {
+                    vm.fetchChecklists()
+                }
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateChecklistView()
