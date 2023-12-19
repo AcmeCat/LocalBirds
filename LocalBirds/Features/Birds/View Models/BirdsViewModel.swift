@@ -11,11 +11,14 @@ final class BirdsViewModel: ObservableObject {
     
     @Published private(set) var birds: [Bird] = []
     @Published private(set) var error: APINetworkingManager.NetworkingError?
+    @Published private(set) var isLoading = false
     @Published var hasError = false
     
     func fetchBirds() {
+        isLoading = true
         APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { [weak self] res in
             DispatchQueue.main.async {
+                defer { self?.isLoading = false }
                 switch res {
                 case .success(let result):
                     self?.birds = result.entities

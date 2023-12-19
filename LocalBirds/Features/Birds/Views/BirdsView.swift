@@ -18,18 +18,23 @@ struct BirdsView: View {
         NavigationView {
             ZStack {
                 BackgroundView()
-                ScrollView {
-                    LazyVGrid(columns: columns, 
-                              spacing: 16)  {
-                        ForEach(vm.birds, id: \.id) { bird in
-                            NavigationLink {
-                                DetailView(birdId: bird.id)
-                            } label: {
-                                BirdCardView(bird: bird)
+                
+                if vm.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: columns,
+                                  spacing: 16)  {
+                            ForEach(vm.birds, id: \.id) { bird in
+                                NavigationLink {
+                                    DetailView(birdId: bird.id)
+                                } label: {
+                                    BirdCardView(bird: bird)
+                                }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Birds")
