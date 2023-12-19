@@ -40,11 +40,9 @@ final class CreateChecklistViewModel: ObservableObject {
                         if let networkingError = err as? APINetworkingManager.NetworkingError {
                             self?.error = .networking(error: networkingError)
                         }
-                        
                     }
                 }
             }
-            
         } catch {
             self.hasError = true
             if let validationError = error as? ChecklistValidator.ChecklistValidatorError {
