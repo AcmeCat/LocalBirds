@@ -44,6 +44,7 @@ struct SightingsView: View {
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateSightingView(checklistId: checklistId) {
+                    haptic(.success)
                     withAnimation(.spring().delay(0.25)) {
                         self.shouldShowSuccess.toggle()
                     }

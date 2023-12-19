@@ -45,6 +45,7 @@ struct ChecklistView: View {
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateChecklistView {
+                    haptic(.success)
                     withAnimation(.spring().delay(0.25)) {
                         self.shouldShowSuccess.toggle()
                     }

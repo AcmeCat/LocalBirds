@@ -46,6 +46,8 @@
 		612916F42B319D6600726DA7 /* SuccessPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F32B319D6600726DA7 /* SuccessPopoverView.swift */; };
 		612916F72B31A51700726DA7 /* ChecklistValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F62B31A51700726DA7 /* ChecklistValidator.swift */; };
 		612916FA2B31E80E00726DA7 /* SightingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F92B31E80E00726DA7 /* SightingValidator.swift */; };
+		612916FD2B31F0C200726DA7 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FC2B31F0C200726DA7 /* HapticsManager.swift */; };
+		612917002B31F46500726DA7 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		612916F32B319D6600726DA7 /* SuccessPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopoverView.swift; sourceTree = "<group>"; };
 		612916F62B31A51700726DA7 /* ChecklistValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistValidator.swift; sourceTree = "<group>"; };
 		612916F92B31E80E00726DA7 /* SightingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingValidator.swift; sourceTree = "<group>"; };
+		612916FC2B31F0C200726DA7 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 		612916932B2C9C5600726DA7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				612916FE2B31F44B00726DA7 /* UserDefaults */,
+				612916FB2B31F0A800726DA7 /* Haptics */,
 				612916DE2B2FCDA200726DA7 /* API */,
 				612916B52B2D80B600726DA7 /* Views */,
 				612916AC2B2D69EF00726DA7 /* Mapper */,
@@ -462,6 +468,22 @@
 			path = Validator;
 			sourceTree = "<group>";
 		};
+		612916FB2B31F0A800726DA7 /* Haptics */ = {
+			isa = PBXGroup;
+			children = (
+				612916FC2B31F0C200726DA7 /* HapticsManager.swift */,
+			);
+			path = Haptics;
+			sourceTree = "<group>";
+		};
+		612916FE2B31F44B00726DA7 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -544,6 +566,7 @@
 				612916CB2B2E882900726DA7 /* BackgroundView.swift in Sources */,
 				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,
 				612916DB2B2F3A4F00726DA7 /* CreateChecklistView.swift in Sources */,
+				612916FD2B31F0C200726DA7 /* HapticsManager.swift in Sources */,
 				612916F22B3079DA00726DA7 /* CreateSightingViewModel.swift in Sources */,
 				612916FA2B31E80E00726DA7 /* SightingValidator.swift in Sources */,
 				612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */,
@@ -559,6 +582,7 @@
 				612916F72B31A51700726DA7 /* ChecklistValidator.swift in Sources */,
 				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
 				612916EC2B3018B700726DA7 /* NewChecklist.swift in Sources */,
+				612917002B31F46500726DA7 /* UserDefaultsKeys.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
 				612916D92B2F358700726DA7 /* SightingsItemView.swift in Sources */,
 				612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */,
