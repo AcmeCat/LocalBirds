@@ -17,25 +17,33 @@ struct DetailView: View {
             background
             
             ScrollView {
-                
-                VStack(alignment: .leading, spacing: 18) {
-                    
-                    imageBlock
-                    
-                    Group {
-                        mainInfo
-                        supportLink
+                if vm.isLoading {
+                    ProgressView()
+                } else {
+                    VStack(alignment: .leading, spacing: 18) {
+                        
+                        imageBlock
+                        
+                        Group {
+                            mainInfo
+                            supportLink
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 18)
+                        .background(Theme.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 18)
-                    .background(Theme.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding()
                 }
-                .padding()
             }
         }
         .navigationTitle("Details")
         .onAppear {
             vm.fetchDetails(for: birdId)
+        }
+        .alert(isPresented: $vm.hasError, error: vm.error) {
+            Button("Retry") {
+                vm.fetchDetails(for: birdId)
+            }
         }
     }
 }
