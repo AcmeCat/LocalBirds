@@ -44,6 +44,7 @@
 		612916F02B30776500726DA7 /* NewSighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916EF2B30776500726DA7 /* NewSighting.swift */; };
 		612916F22B3079DA00726DA7 /* CreateSightingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F12B3079DA00726DA7 /* CreateSightingViewModel.swift */; };
 		612916F42B319D6600726DA7 /* SuccessPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F32B319D6600726DA7 /* SuccessPopoverView.swift */; };
+		612916F72B31A51700726DA7 /* ChecklistValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F62B31A51700726DA7 /* ChecklistValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		612916EF2B30776500726DA7 /* NewSighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSighting.swift; sourceTree = "<group>"; };
 		612916F12B3079DA00726DA7 /* CreateSightingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSightingViewModel.swift; sourceTree = "<group>"; };
 		612916F32B319D6600726DA7 /* SuccessPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopoverView.swift; sourceTree = "<group>"; };
+		612916F62B31A51700726DA7 /* ChecklistValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +369,7 @@
 		612916C02B2E85A700726DA7 /* Create Checklist */ = {
 			isa = PBXGroup;
 			children = (
+				612916F52B31A4E900726DA7 /* Validator */,
 				612916C32B2E85E900726DA7 /* View Models */,
 				612916C22B2E85DF00726DA7 /* Models */,
 				612916C12B2E85D200726DA7 /* Views */,
@@ -438,6 +441,14 @@
 				612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		612916F52B31A4E900726DA7 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				612916F62B31A51700726DA7 /* ChecklistValidator.swift */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,6 +544,7 @@
 				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,
 				612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */,
 				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
+				612916F72B31A51700726DA7 /* ChecklistValidator.swift in Sources */,
 				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
 				612916EC2B3018B700726DA7 /* NewChecklist.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,

@@ -16,7 +16,15 @@ struct CreateChecklistView: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Checklist Name", text: $vm.checklist.name)
+                Section {
+                    TextField("Checklist Name", text: $vm.checklist.name)
+                } footer: {
+                    if case .validation(let err) = vm.error,
+                       let errorDesc = err.errorDescription {
+                        Text(errorDesc)
+                            .foregroundStyle(.red)
+                    }
+                }
                 
                 Section {
                     Button("Submit") {

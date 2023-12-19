@@ -11,31 +11,47 @@ final class CreateChecklistViewModel: ObservableObject {
     
     @Published var checklist = NewChecklist()
     @Published private(set) var state: SubmissionState?
-    @Published private(set) var error: APINetworkingManager.NetworkingError?
+    @Published private(set) var error: FormError?
     @Published var hasError = false
+    
+    private let validator = ChecklistValidator()
     
     func create() {
         
-        state = .submitting
-        
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        let data = try? encoder.encode(checklist)
-        
-        APINetworkingManager.shared.request(methodType: .POST(data: data), "https://nuthatch.lastelm.software/checklists") { [weak self] res in
+        do {
+            try validator.validate(checklist)
             
-            DispatchQueue.main.async {
+            state = .submitting
+            
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            let data = try? encoder.encode(checklist)
+            
+            APINetworkingManager.shared.request(methodType: .POST(data: data), "https://nuthatch.lastelm.software/checklists") { [weak self] res in
                 
-                switch res {
-                case .success:
-                    self?.state = .successful
-                case .failure(let err):
-                    self?.hasError = true
-                    self?.error = err as? APINetworkingManager.NetworkingError
-                    self?.state = .unsuccessful
+                DispatchQueue.main.async {
+                    
+                    switch res {
+                    case .success:
+                        self?.state = .successful
+                    case .failure(let err):
+                        self?.state = .unsuccessful
+                        self?.hasError = true
+                        if let networkingError = err as? APINetworkingManager.NetworkingError {
+                            self?.error = .networking(error: networkingError)
+                        }
+                        
+                    }
                 }
             }
+            
+        } catch {
+            self.hasError = true
+            if let validationError = error as? ChecklistValidator.ChecklistValidatorError {
+                self.error = .validation(error: validationError)
+            }
         }
+        
     }
 }
 
@@ -44,5 +60,22 @@ extension CreateChecklistViewModel {
         case unsuccessful
         case successful
         case submitting
+    }
+}
+
+extension CreateChecklistViewModel {
+    enum FormError: LocalizedError {
+        case networking(error: LocalizedError)
+        case validation(error: LocalizedError)
+    }
+}
+
+extension CreateChecklistViewModel.FormError {
+    var errorDescription: String? {
+        switch self {
+        case .networking(let err),
+                .validation(let err):
+            return err.errorDescription
+        }
     }
 }
