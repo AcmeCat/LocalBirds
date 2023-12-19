@@ -43,6 +43,7 @@
 		612916EE2B30192000726DA7 /* CreateChecklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916ED2B30192000726DA7 /* CreateChecklistViewModel.swift */; };
 		612916F02B30776500726DA7 /* NewSighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916EF2B30776500726DA7 /* NewSighting.swift */; };
 		612916F22B3079DA00726DA7 /* CreateSightingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F12B3079DA00726DA7 /* CreateSightingViewModel.swift */; };
+		612916F42B319D6600726DA7 /* SuccessPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F32B319D6600726DA7 /* SuccessPopoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		612916ED2B30192000726DA7 /* CreateChecklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChecklistViewModel.swift; sourceTree = "<group>"; };
 		612916EF2B30776500726DA7 /* NewSighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSighting.swift; sourceTree = "<group>"; };
 		612916F12B3079DA00726DA7 /* CreateSightingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSightingViewModel.swift; sourceTree = "<group>"; };
+		612916F32B319D6600726DA7 /* SuccessPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 			children = (
 				612916B62B2D80C700726DA7 /* PillView.swift */,
 				612916CA2B2E882900726DA7 /* BackgroundView.swift */,
+				612916F32B319D6600726DA7 /* SuccessPopoverView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				612916902B2C983400726DA7 /* Symbols.swift in Sources */,
 				612916EA2B300EEE00726DA7 /* SightingsViewModel.swift in Sources */,
 				612916E22B2FE11200726DA7 /* PrivateConstants.swift in Sources */,
+				612916F42B319D6600726DA7 /* SuccessPopoverView.swift in Sources */,
 				612916B22B2D725300726DA7 /* BirdsView.swift in Sources */,
 				612916CB2B2E882900726DA7 /* BackgroundView.swift in Sources */,
 				612916B02B2D6EB100726DA7 /* AllBirdsResponse.swift in Sources */,

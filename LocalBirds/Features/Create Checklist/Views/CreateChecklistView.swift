@@ -11,6 +11,7 @@ struct CreateChecklistView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject private var vm = CreateChecklistViewModel()
+    let successfulAction: () -> Void
     
     var body: some View {
         NavigationView {
@@ -33,6 +34,7 @@ struct CreateChecklistView: View {
             .onChange(of: vm.state) { formState in
                 if formState == .successful {
                     dismiss()
+                    successfulAction()
                 }
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
@@ -51,7 +53,7 @@ struct CreateChecklistView: View {
 }
 
 #Preview {
-    CreateChecklistView()
+    CreateChecklistView() {}
 }
 
 private extension CreateChecklistView {

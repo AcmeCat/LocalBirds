@@ -11,6 +11,7 @@ struct ChecklistView: View {
     
     @StateObject private var vm = ChecklistsViewModel()
     @State private var shouldShowCreate = false
+    @State private var shouldShowSuccess = false
     
     var body: some View {
         NavigationView {
@@ -42,13 +43,30 @@ struct ChecklistView: View {
             .onAppear {
                 vm.fetchChecklists()
             }
+            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
+                CreateChecklistView {
+                    withAnimation(.spring().delay(0.25)) {
+                        self.shouldShowSuccess.toggle()
+                    }
+                }
+            }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
                     vm.fetchChecklists()
                 }
             }
-            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
-                CreateChecklistView()
+            .overlay {
+                if shouldShowSuccess {
+                    SuccessPopoverView()
+                        .transition(.scale.combined(with: .opacity))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.spring()) {
+                                    self.shouldShowSuccess.toggle()
+                                }
+                            }
+                        }
+                }
             }
         }
     }

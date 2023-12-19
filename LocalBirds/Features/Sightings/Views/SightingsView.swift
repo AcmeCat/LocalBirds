@@ -12,6 +12,7 @@ struct SightingsView: View {
     let checklistId: String
     @StateObject private var vm = SightingsViewModel()
     @State private var shouldShowCreate = false
+    @State private var shouldShowSuccess = false
     
     var body: some View {
         NavigationView {
@@ -41,13 +42,30 @@ struct SightingsView: View {
             .onAppear {
                 vm.fetchDetails(for: checklistId)
             }
+            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
+                CreateSightingView(checklistId: checklistId) {
+                    withAnimation(.spring().delay(0.25)) {
+                        self.shouldShowSuccess.toggle()
+                    }
+                }
+            }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
                     vm.fetchDetails(for: checklistId)
                 }
             }
-            .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
-                CreateSightingView(checklistId: checklistId)
+            .overlay {
+                if shouldShowSuccess {
+                    SuccessPopoverView()
+                        .transition(.scale.combined(with: .opacity))
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                withAnimation(.spring()) {
+                                    self.shouldShowSuccess.toggle()
+                                }
+                            }
+                        }
+                }
             }
         }
     }
