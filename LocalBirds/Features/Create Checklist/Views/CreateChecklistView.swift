@@ -55,7 +55,6 @@ struct CreateChecklistView: View {
                     ProgressView()
                 }
             }
-
         }
     }
 }
