@@ -18,7 +18,7 @@ final class BirdsViewModel: ObservableObject {
         isLoading = true
         APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { [weak self] res in
             DispatchQueue.main.async {
-                defer { self?.isLoading = false }
+                defer { self?.isLoading = false } //resets loading state after all other processes
                 switch res {
                 case .success(let result):
                     self?.birds = result.entities
