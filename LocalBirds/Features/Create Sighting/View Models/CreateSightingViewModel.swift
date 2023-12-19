@@ -18,6 +18,8 @@ final class CreateSightingViewModel: ObservableObject {
     
     func create(checklistId: String) {
         
+        state = .submitting
+        
         sighting.birdId = Int(sightingBirdId) ?? 0
         sighting.dateTime = Date.now
         
@@ -47,5 +49,6 @@ extension CreateSightingViewModel {
     enum SubmissionState {
         case unsuccessful
         case successful
+        case submitting
     }
 }

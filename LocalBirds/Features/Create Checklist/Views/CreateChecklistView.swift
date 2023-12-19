@@ -23,6 +23,7 @@ struct CreateChecklistView: View {
                     }
                 }
             }
+            .disabled(vm.state == .submitting)
             .navigationTitle("New Checklist")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -39,6 +40,12 @@ struct CreateChecklistView: View {
                     vm.create()
                 }
             }
+            .overlay {
+                if vm.state == .submitting {
+                    ProgressView()
+                }
+            }
+
         }
     }
 }

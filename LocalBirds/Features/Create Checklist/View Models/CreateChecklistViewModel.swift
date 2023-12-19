@@ -16,6 +16,8 @@ final class CreateChecklistViewModel: ObservableObject {
     
     func create() {
         
+        state = .submitting
+        
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
         let data = try? encoder.encode(checklist)
@@ -41,5 +43,6 @@ extension CreateChecklistViewModel {
     enum SubmissionState {
         case unsuccessful
         case successful
+        case submitting
     }
 }

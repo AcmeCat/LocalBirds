@@ -26,6 +26,7 @@ struct CreateSightingView: View {
                     }
                 }
             }
+            .disabled(vm.state == .submitting)
             .navigationTitle("New Sighting")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -40,6 +41,11 @@ struct CreateSightingView: View {
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
                     vm.create(checklistId: checklistId)
+                }
+            }
+            .overlay {
+                if vm.state == .submitting {
+                    ProgressView()
                 }
             }
         }
