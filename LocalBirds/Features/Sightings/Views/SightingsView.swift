@@ -39,8 +39,8 @@ struct SightingsView: View {
                     create
                 }
             }
-            .onAppear {
-                vm.fetchDetails(for: checklistId)
+            .task {
+                await vm.fetchDetails(for: checklistId)
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateSightingView(checklistId: checklistId) {
@@ -52,7 +52,9 @@ struct SightingsView: View {
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.fetchDetails(for: checklistId)
+                    Task {
+                        await vm.fetchDetails(for: checklistId)
+                    }
                 }
             }
             .overlay {
@@ -90,9 +92,6 @@ private extension SightingsView {
         }
     }
     
-    func fetch(){
-        vm.fetchDetails(for: checklistId)
-    }
-    
+    func fetch(){ Task { await vm.fetchDetails(for: checklistId) } }
     
 }

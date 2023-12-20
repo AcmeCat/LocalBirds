@@ -15,86 +15,45 @@ final class APINetworkingManager { //class must be final to eliminate children
     private init(kp: APIKeyPair) {keypair = kp}
     
     func request<T: Codable>(_ endpoint: Endpoint,
-                             type: T.Type,
-                             completion: @escaping (Result<T, Error>) -> Void) {
+                             type: T.Type) async throws -> T {
         
         //build request
-        guard let url = endpoint.url else {
-            completion(.failure(NetworkingError.invalidURL))
-            return
-        }
+        guard let url = endpoint.url else { throw NetworkingError.invalidURL }
         let request = buildRequest(from: url, methodType: endpoint.methodType)
         
-        //build task to execute request
-        let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
-            
-            //handle returned errors
-            if err != nil {
-                completion(.failure(NetworkingError.custom(error: err!)))
-                return
-            }
-            
-            //handle responses outside of success range
-            guard let res = res as? HTTPURLResponse,
-                  (200...300) ~= res.statusCode else { //pattern match to response status codes
-                let statusCode = (res as! HTTPURLResponse).statusCode
-                completion(.failure(NetworkingError.invalidStatusCode(statusCode: statusCode)))
-                return
-            }
-            
-            //unwrap data using guard. handles nil data returns
-            guard let data = data else {
-                completion(.failure(NetworkingError.invalidData))
-                return
-            }
-            
-            do {
-                //decode data
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let result = try decoder.decode(T.self, from: data)
-                completion(.success(result))
-            } catch {
-                completion(.failure(NetworkingError.faledToDecode(error: error)))
-            }
+        //await data and response from URLSession request
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        //handle responses outside of success range
+        guard let response = response as? HTTPURLResponse,
+              (200...300) ~= response.statusCode else { //pattern match to response status codes
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            throw NetworkingError.invalidStatusCode(statusCode: statusCode)
         }
         
-        // !!!IMPORTANT!!! - starts the task
-        dataTask.resume()
+        //decode data
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let result = try decoder.decode(T.self, from: data)
+        
+        return result
     }
     
-    func request(_ endpoint: Endpoint,
-                 completion: @escaping (Result<Void, Error>) -> Void) {
+    func request(_ endpoint: Endpoint) async throws {
         
         //build request
-        guard let url = endpoint.url else {
-            completion(.failure(NetworkingError.invalidURL))
-            return
-        }
+        guard let url = endpoint.url else { throw NetworkingError.invalidURL }
         let request = buildRequest(from: url, methodType: endpoint.methodType)
         
-        //build task to execute request
-        let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
-            
-            //handle returned errors
-            if err != nil {
-                completion(.failure(NetworkingError.custom(error: err!)))
-                return
-            }
-            
-            //handle responses outside of success range
-            guard let res = res as? HTTPURLResponse,
-                  (200...300) ~= res.statusCode else { //pattern match to response status codes
-                let statusCode = (res as! HTTPURLResponse).statusCode
-                completion(.failure(NetworkingError.invalidStatusCode(statusCode: statusCode)))
-                return
-            }
-            
-            completion(.success(()))
-        }
+        //await data and response from URLSession request
+        let (_, response) = try await URLSession.shared.data(for: request)
         
-        // !!!IMPORTANT!!! - starts the task
-        dataTask.resume()
+        //handle responses outside of success range
+        guard let response = response as? HTTPURLResponse,
+              (200...300) ~= response.statusCode else { //pattern match to response status codes
+            let statusCode = (response as! HTTPURLResponse).statusCode
+            throw NetworkingError.invalidStatusCode(statusCode: statusCode)
+        }
     }
 }
 

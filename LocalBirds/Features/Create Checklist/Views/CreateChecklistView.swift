@@ -28,7 +28,7 @@ struct CreateChecklistView: View {
                 
                 Section {
                     Button("Submit") {
-                        vm.create()
+                        Task { await vm.create() }
                     }
                 }
             }
@@ -47,7 +47,7 @@ struct CreateChecklistView: View {
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.create()
+                    Task { await vm.create() }
                 }
             }
             .overlay {

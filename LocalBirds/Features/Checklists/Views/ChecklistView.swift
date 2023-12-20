@@ -40,8 +40,8 @@ struct ChecklistView: View {
                     create
                 }
             }
-            .onAppear {
-                vm.fetchChecklists()
+            .task {
+                await vm.fetchChecklists()
             }
             .sheet(isPresented: $shouldShowCreate, onDismiss: fetch){
                 CreateChecklistView {
@@ -53,7 +53,9 @@ struct ChecklistView: View {
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.fetchChecklists()
+                    Task {
+                        await vm.fetchChecklists()
+                    }
                 }
             }
             .overlay {
@@ -91,8 +93,6 @@ private extension ChecklistView {
         }
     }
     
-    func fetch() {
-        vm.fetchChecklists()
-    }
+    func fetch() { Task { await vm.fetchChecklists() }}
     
 }

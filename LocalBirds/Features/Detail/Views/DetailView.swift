@@ -37,12 +37,14 @@ struct DetailView: View {
             }
         }
         .navigationTitle("Details")
-        .onAppear {
-            vm.fetchDetails(for: birdId)
+        .task {
+            await vm.fetchDetails(for: birdId)
         }
         .alert(isPresented: $vm.hasError, error: vm.error) {
             Button("Retry") {
-                vm.fetchDetails(for: birdId)
+                Task {
+                    await vm.fetchDetails(for: birdId)
+                }
             }
         }
     }

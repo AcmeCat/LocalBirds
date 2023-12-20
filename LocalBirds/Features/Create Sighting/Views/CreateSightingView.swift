@@ -31,7 +31,7 @@ struct CreateSightingView: View {
                 
                 Section {
                     Button("Submit") {
-                        vm.create(checklistId: checklistId)
+                        Task { await vm.create(checklistId: checklistId) }
                     }
                 }
             }
@@ -50,7 +50,7 @@ struct CreateSightingView: View {
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.create(checklistId: checklistId)
+                    Task { await vm.create(checklistId: checklistId) }
                 }
             }
             .overlay {

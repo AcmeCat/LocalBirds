@@ -16,7 +16,7 @@ final class CreateChecklistViewModel: ObservableObject {
     
     private let validator = ChecklistValidator()
     
-    func create() {
+    func create() async {
         
         do {
             try validator.validate(checklist)
@@ -25,31 +25,26 @@ final class CreateChecklistViewModel: ObservableObject {
             
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
-            let data = try? encoder.encode(checklist)
+            let data = try encoder.encode(checklist)
             
-            APINetworkingManager.shared.request(.createChecklist(submissionData: data)) { [weak self] res in
-                
-                DispatchQueue.main.async {
-                    
-                    switch res {
-                    case .success:
-                        self?.state = .successful
-                    case .failure(let err):
-                        self?.state = .unsuccessful
-                        self?.hasError = true
-                        if let networkingError = err as? APINetworkingManager.NetworkingError {
-                            self?.error = .networking(error: networkingError)
-                        }
-                    }
-                }
-            }
+            try await APINetworkingManager.shared.request(.createChecklist(submissionData: data))
+            
+            state = .successful
+            
         } catch {
+            
             self.hasError = true
-            if let validationError = error as? ChecklistValidator.ChecklistValidatorError {
-                self.error = .validation(error: validationError)
+            self.state = .unsuccessful
+            
+            switch error {
+            case is APINetworkingManager.NetworkingError:
+                self.error = .networking(error: error as! APINetworkingManager.NetworkingError)
+            case is ChecklistValidator.ChecklistValidatorError:
+                self.error = .validation(error: error as! ChecklistValidator.ChecklistValidatorError)
+            default:
+                self.error = .system(error: error)
             }
         }
-        
     }
 }
 
@@ -65,6 +60,7 @@ extension CreateChecklistViewModel {
     enum FormError: LocalizedError {
         case networking(error: LocalizedError)
         case validation(error: LocalizedError)
+        case system(error: Error)
     }
 }
 
@@ -74,6 +70,8 @@ extension CreateChecklistViewModel.FormError {
         case .networking(let err),
                 .validation(let err):
             return err.errorDescription
+        case .system(let err):
+            return err.localizedDescription
         }
     }
 }

@@ -14,18 +14,23 @@ final class BirdsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
     
-    func fetchBirds() {
+    func fetchBirds() async {
+        
+        //sets loading state at the beginning and resets it at the end
         isLoading = true
-        APINetworkingManager.shared.request(.birds, type: AllBirdsResponse.self) { [weak self] res in
-            DispatchQueue.main.async {
-                defer { self?.isLoading = false } //resets loading state after all other processes
-                switch res {
-                case .success(let result):
-                    self?.birds = result.entities
-                case .failure(let error):
-                    self?.hasError = true
-                    self?.error = error as? APINetworkingManager.NetworkingError
-                }
+        defer { isLoading = false }
+        
+        do {
+            //try the request and load birds
+            let result = try await APINetworkingManager.shared.request(.birds, type: AllBirdsResponse.self)
+            self.birds = result.entities
+        } catch {
+            //handle errors
+            self.hasError = true
+            if let networkingError = error as? APINetworkingManager.NetworkingError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
             }
         }
     }

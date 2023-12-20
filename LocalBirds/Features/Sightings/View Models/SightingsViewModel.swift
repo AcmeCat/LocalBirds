@@ -14,18 +14,23 @@ final class SightingsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
     
-    func fetchDetails(for checklistId: String) {
+    func fetchDetails(for checklistId: String) async {
+        
+        //sets loading state at the beginning and resets it at the end
         isLoading = true
-        APINetworkingManager.shared.request(.sightings(checklistId: checklistId), type: SightingsResponse.self) { [weak self] res in
-            DispatchQueue.main.async {
-                defer { self?.isLoading = false } //resets loading state after all other processes
-                switch res {
-                case .success(let result):
-                    self?.sightings = result.entities
-                case .failure(let error):
-                    self?.hasError = true
-                    self?.error = error as? APINetworkingManager.NetworkingError
-                }
+        defer { isLoading = false }
+        
+        do {
+            //try the request and load bird details
+            let result = try await APINetworkingManager.shared.request(.sightings(checklistId: checklistId), type: SightingsResponse.self)
+            self.sightings = result.entities
+        } catch {
+            //handle errors
+            self.hasError = true
+            if let networkingError = error as? APINetworkingManager.NetworkingError {
+                self.error = networkingError
+            } else {
+                self.error = .custom(error: error)
             }
         }
     }

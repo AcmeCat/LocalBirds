@@ -18,7 +18,7 @@ final class CreateSightingViewModel: ObservableObject {
     
     private let validator = SightingValidator()
     
-    func create(checklistId: String) {
+    func create(checklistId: String) async {
         
         sighting.birdId = Int(sightingBirdId) ?? 0
         sighting.dateTime = Date.now
@@ -32,27 +32,23 @@ final class CreateSightingViewModel: ObservableObject {
             encoder.keyEncodingStrategy = .convertToSnakeCase
             encoder.dateEncodingStrategy = .iso8601
             let data = try? encoder.encode(sighting)
-            print(sighting.birdId)
-            APINetworkingManager.shared.request(.createSighting(checklistId: checklistId, birdId: sighting.birdId, submissionData: data)) { [weak self] res in
-                
-                DispatchQueue.main.async {
-                    
-                    switch res {
-                    case .success:
-                        self?.state = .successful
-                    case .failure(let err):
-                        self?.state = .unsuccessful
-                        self?.hasError = true
-                        if let networkingError = err as? APINetworkingManager.NetworkingError {
-                            self?.error = .networking(error: networkingError)
-                        }
-                    }
-                }
-            }
+            
+            try await APINetworkingManager.shared.request(.createSighting(checklistId: checklistId, birdId: sighting.birdId, submissionData: data))
+            
+            state = .successful
+            
         } catch {
+            
             self.hasError = true
-            if let validationError = error as? SightingValidator.SightingValidatorError {
-                self.error = .validation(error: validationError)
+            self.state = .unsuccessful
+            
+            switch error {
+            case is APINetworkingManager.NetworkingError:
+                self.error = .networking(error: error as! APINetworkingManager.NetworkingError)
+            case is SightingValidator.SightingValidatorError:
+                self.error = .validation(error: error as! SightingValidator.SightingValidatorError)
+            default:
+                self.error = .system(error: error)
             }
         }
     }
@@ -70,6 +66,7 @@ extension CreateSightingViewModel {
     enum FormError: LocalizedError {
         case networking(error: LocalizedError)
         case validation(error: LocalizedError)
+        case system(error: Error)
     }
 }
 
@@ -79,6 +76,8 @@ extension CreateSightingViewModel.FormError {
         case .networking(let err),
                 .validation(let err):
             return err.errorDescription
+        case .system(let err):
+            return err.localizedDescription
         }
     }
 }

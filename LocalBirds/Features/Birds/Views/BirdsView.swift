@@ -38,12 +38,14 @@ struct BirdsView: View {
                 }
             }
             .navigationTitle("Birds")
-            .onAppear {
-                vm.fetchBirds()
+            .task {
+                await vm.fetchBirds()
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
-                    vm.fetchBirds()
+                    Task {
+                        await vm.fetchBirds()
+                    }
                 }
             }
         }
