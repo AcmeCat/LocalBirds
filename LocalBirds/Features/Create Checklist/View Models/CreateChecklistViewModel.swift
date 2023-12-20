@@ -16,6 +16,7 @@ final class CreateChecklistViewModel: ObservableObject {
     
     private let validator = ChecklistValidator()
     
+    @MainActor
     func create() async {
         
         do {

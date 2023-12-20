@@ -14,6 +14,7 @@ final class DetailsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
     
+    @MainActor
     func fetchDetails(for birdId: Int) async {
         
         //sets loading state at the beginning and resets it at the end

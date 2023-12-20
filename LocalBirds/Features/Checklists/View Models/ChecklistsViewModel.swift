@@ -14,6 +14,7 @@ final class ChecklistsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var hasError = false
     
+    @MainActor
     func fetchChecklists() async {
         
         //sets loading state at the beginning and resets it at the end

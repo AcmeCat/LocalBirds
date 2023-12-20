@@ -18,6 +18,7 @@ final class CreateSightingViewModel: ObservableObject {
     
     private let validator = SightingValidator()
     
+    @MainActor
     func create(checklistId: String) async {
         
         sighting.birdId = Int(sightingBirdId) ?? 0
