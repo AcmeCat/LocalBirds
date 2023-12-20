@@ -27,7 +27,7 @@ final class CreateChecklistViewModel: ObservableObject {
             encoder.keyEncodingStrategy = .convertToSnakeCase
             let data = try? encoder.encode(checklist)
             
-            APINetworkingManager.shared.request(methodType: .POST(data: data), "https://nuthatch.lastelm.software/checklists") { [weak self] res in
+            APINetworkingManager.shared.request(.createChecklist(submissionData: data)) { [weak self] res in
                 
                 DispatchQueue.main.async {
                     

@@ -48,6 +48,7 @@
 		612916FA2B31E80E00726DA7 /* SightingValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916F92B31E80E00726DA7 /* SightingValidator.swift */; };
 		612916FD2B31F0C200726DA7 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FC2B31F0C200726DA7 /* HapticsManager.swift */; };
 		612917002B31F46500726DA7 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */; };
+		612917022B326FFE00726DA7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612917012B326FFE00726DA7 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		612916F92B31E80E00726DA7 /* SightingValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingValidator.swift; sourceTree = "<group>"; };
 		612916FC2B31F0C200726DA7 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		612917012B326FFE00726DA7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				612916DF2B2FCDD100726DA7 /* APINetworkingManager.swift */,
+				612917012B326FFE00726DA7 /* Endpoint.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				612916DB2B2F3A4F00726DA7 /* CreateChecklistView.swift in Sources */,
 				612916FD2B31F0C200726DA7 /* HapticsManager.swift in Sources */,
 				612916F22B3079DA00726DA7 /* CreateSightingViewModel.swift in Sources */,
+				612917022B326FFE00726DA7 /* Endpoint.swift in Sources */,
 				612916FA2B31E80E00726DA7 /* SightingValidator.swift in Sources */,
 				612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */,
 				612916E02B2FCDD100726DA7 /* APINetworkingManager.swift in Sources */,

@@ -32,8 +32,8 @@ final class CreateSightingViewModel: ObservableObject {
             encoder.keyEncodingStrategy = .convertToSnakeCase
             encoder.dateEncodingStrategy = .iso8601
             let data = try? encoder.encode(sighting)
-            
-            APINetworkingManager.shared.request(methodType: .POST(data: data), "https://nuthatch.lastelm.software/checklists/\(checklistId)/entries/\(sighting.birdId)") { [weak self] res in
+            print(sighting.birdId)
+            APINetworkingManager.shared.request(.createSighting(checklistId: checklistId, birdId: sighting.birdId, submissionData: data)) { [weak self] res in
                 
                 DispatchQueue.main.async {
                     

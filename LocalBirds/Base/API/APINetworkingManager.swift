@@ -14,17 +14,16 @@ final class APINetworkingManager { //class must be final to eliminate children
     static let shared = APINetworkingManager(kp: PrivateConstants.APIConstants.keyPair)
     private init(kp: APIKeyPair) {keypair = kp}
     
-    func request<T: Codable>(methodType: MethodType = .GET,
-                             _ absoluteURL: String,
+    func request<T: Codable>(_ endpoint: Endpoint,
                              type: T.Type,
                              completion: @escaping (Result<T, Error>) -> Void) {
         
         //build request
-        guard let url = URL(string: absoluteURL) else {
+        guard let url = endpoint.url else {
             completion(.failure(NetworkingError.invalidURL))
             return
         }
-        let request = buildRequest(from: url, methodType: methodType)
+        let request = buildRequest(from: url, methodType: endpoint.methodType)
         
         //build task to execute request
         let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
@@ -64,16 +63,15 @@ final class APINetworkingManager { //class must be final to eliminate children
         dataTask.resume()
     }
     
-    func request(methodType: MethodType = .GET,
-                 _ absoluteURL: String,
+    func request(_ endpoint: Endpoint,
                  completion: @escaping (Result<Void, Error>) -> Void) {
         
         //build request
-        guard let url = URL(string: absoluteURL) else {
+        guard let url = endpoint.url else {
             completion(.failure(NetworkingError.invalidURL))
             return
         }
-        let request = buildRequest(from: url, methodType: methodType)
+        let request = buildRequest(from: url, methodType: endpoint.methodType)
         
         //build task to execute request
         let dataTask = URLSession.shared.dataTask(with: request) { data, res, err in
@@ -127,16 +125,9 @@ extension APINetworkingManager.NetworkingError {
     }
 }
 
-extension APINetworkingManager {
-    enum MethodType {
-        case GET
-        case POST(data: Data?)
-    }
-}
-
 private extension APINetworkingManager {
     func buildRequest(from url: URL,
-                      methodType: MethodType) -> URLRequest {
+                      methodType: Endpoint.MethodType) -> URLRequest {
         
         var request = URLRequest(url: url)
         

@@ -16,7 +16,7 @@ final class BirdsViewModel: ObservableObject {
     
     func fetchBirds() {
         isLoading = true
-        APINetworkingManager.shared.request("https://nuthatch.lastelm.software/v2/birds", type: AllBirdsResponse.self) { [weak self] res in
+        APINetworkingManager.shared.request(.birds, type: AllBirdsResponse.self) { [weak self] res in
             DispatchQueue.main.async {
                 defer { self?.isLoading = false } //resets loading state after all other processes
                 switch res {

@@ -16,7 +16,7 @@ final class ChecklistsViewModel: ObservableObject {
     
     func fetchChecklists() {
         isLoading = true
-        APINetworkingManager.shared.request("https://nuthatch.lastelm.software/checklists", type: AllChecklistsResponse.self) { [weak self] res in
+        APINetworkingManager.shared.request(.checklists, type: AllChecklistsResponse.self) { [weak self] res in
             DispatchQueue.main.async {
                 defer { self?.isLoading = false } //resets loading state after all other processes
                 switch res {
