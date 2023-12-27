@@ -29,7 +29,6 @@
 		612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D02B2E8E2D00726DA7 /* SightingsView.swift */; };
 		612916D32B2E8E7400726DA7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D22B2E8E7400726DA7 /* SettingsView.swift */; };
 		612916D52B2E906900726DA7 /* SightingsData.json in Resources */ = {isa = PBXBuildFile; fileRef = 612916D42B2E906900726DA7 /* SightingsData.json */; };
-		612916D72B2EC42E00726DA7 /* ChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D62B2EC42E00726DA7 /* ChecklistItemView.swift */; };
 		612916D92B2F358700726DA7 /* SightingsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916D82B2F358700726DA7 /* SightingsItemView.swift */; };
 		612916DB2B2F3A4F00726DA7 /* CreateChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916DA2B2F3A4F00726DA7 /* CreateChecklistView.swift */; };
 		612916DD2B2FC86300726DA7 /* CreateSightingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916DC2B2FC86300726DA7 /* CreateSightingView.swift */; };
@@ -49,6 +48,9 @@
 		612916FD2B31F0C200726DA7 /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FC2B31F0C200726DA7 /* HapticsManager.swift */; };
 		612917002B31F46500726DA7 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */; };
 		612917022B326FFE00726DA7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612917012B326FFE00726DA7 /* Endpoint.swift */; };
+		612917082B3C5A1300726DA7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612917072B3C5A1300726DA7 /* MainView.swift */; };
+		6129170B2B3C5CAC00726DA7 /* ChecklistItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6129170A2B3C5CAC00726DA7 /* ChecklistItemView.swift */; };
+		6129170F2B3C60AE00726DA7 /* BirdOfTheDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6129170E2B3C60AE00726DA7 /* BirdOfTheDayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +78,6 @@
 		612916D02B2E8E2D00726DA7 /* SightingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsView.swift; sourceTree = "<group>"; };
 		612916D22B2E8E7400726DA7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		612916D42B2E906900726DA7 /* SightingsData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SightingsData.json; sourceTree = "<group>"; };
-		612916D62B2EC42E00726DA7 /* ChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemView.swift; sourceTree = "<group>"; };
 		612916D82B2F358700726DA7 /* SightingsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsItemView.swift; sourceTree = "<group>"; };
 		612916DA2B2F3A4F00726DA7 /* CreateChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChecklistView.swift; sourceTree = "<group>"; };
 		612916DC2B2FC86300726DA7 /* CreateSightingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSightingView.swift; sourceTree = "<group>"; };
@@ -96,6 +97,10 @@
 		612916FC2B31F0C200726DA7 /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		612916FF2B31F46500726DA7 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		612917012B326FFE00726DA7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		612917072B3C5A1300726DA7 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		612917092B3C5BD100726DA7 /* ChecklistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsViewModel.swift; sourceTree = "<group>"; };
+		6129170A2B3C5CAC00726DA7 /* ChecklistItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItemView.swift; sourceTree = "<group>"; };
+		6129170E2B3C60AE00726DA7 /* BirdOfTheDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirdOfTheDayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +179,7 @@
 		612916942B2C9C5F00726DA7 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				612917032B3C594A00726DA7 /* Main */,
 				612916C42B2E85F800726DA7 /* Create Sighting */,
 				612916C02B2E85A700726DA7 /* Create Checklist */,
 				612916BA2B2DE76100726DA7 /* Sightings */,
@@ -252,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				612916BE2B2DE7D500726DA7 /* ChecklistView.swift */,
-				612916D62B2EC42E00726DA7 /* ChecklistItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -260,7 +265,6 @@
 		6129169D2B2C9CEE00726DA7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				612916C82B2E871C00726DA7 /* AllChecklistsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -487,6 +491,42 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		612917032B3C594A00726DA7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				612917062B3C59B600726DA7 /* View Models */,
+				612917042B3C59A000726DA7 /* Models */,
+				612917052B3C59AC00726DA7 /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		612917042B3C59A000726DA7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				612916C82B2E871C00726DA7 /* AllChecklistsResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		612917052B3C59AC00726DA7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				612917072B3C5A1300726DA7 /* MainView.swift */,
+				6129170A2B3C5CAC00726DA7 /* ChecklistItemView.swift */,
+				6129170E2B3C60AE00726DA7 /* BirdOfTheDayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		612917062B3C59B600726DA7 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				612917092B3C5BD100726DA7 /* ChecklistsViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -574,20 +614,22 @@
 				612917022B326FFE00726DA7 /* Endpoint.swift in Sources */,
 				612916FA2B31E80E00726DA7 /* SightingValidator.swift in Sources */,
 				612916D12B2E8E2D00726DA7 /* SightingsView.swift in Sources */,
+				6129170F2B3C60AE00726DA7 /* BirdOfTheDayView.swift in Sources */,
 				612916E02B2FCDD100726DA7 /* APINetworkingManager.swift in Sources */,
 				612916EE2B30192000726DA7 /* CreateChecklistViewModel.swift in Sources */,
 				612916F02B30776500726DA7 /* NewSighting.swift in Sources */,
 				612916E82B300D0900726DA7 /* ChecklistsViewModel.swift in Sources */,
-				612916D72B2EC42E00726DA7 /* ChecklistItemView.swift in Sources */,
 				612916DD2B2FC86300726DA7 /* CreateSightingView.swift in Sources */,
 				612916B92B2D892E00726DA7 /* DetailView.swift in Sources */,
 				612916E62B2FF23C00726DA7 /* DetailsViewModel.swift in Sources */,
 				612916B42B2D7F3200726DA7 /* BirdCardView.swift in Sources */,
 				612916F72B31A51700726DA7 /* ChecklistValidator.swift in Sources */,
 				612916BF2B2DE7D500726DA7 /* ChecklistView.swift in Sources */,
+				612917082B3C5A1300726DA7 /* MainView.swift in Sources */,
 				612916EC2B3018B700726DA7 /* NewChecklist.swift in Sources */,
 				612917002B31F46500726DA7 /* UserDefaultsKeys.swift in Sources */,
 				612916B72B2D80C700726DA7 /* PillView.swift in Sources */,
+				6129170B2B3C5CAC00726DA7 /* ChecklistItemView.swift in Sources */,
 				612916D92B2F358700726DA7 /* SightingsItemView.swift in Sources */,
 				612916E42B2FEC4200726DA7 /* BirdsViewModel.swift in Sources */,
 				612916D32B2E8E7400726DA7 /* SettingsView.swift in Sources */,

@@ -88,7 +88,7 @@ private extension APINetworkingManager {
     func buildRequest(from url: URL,
                       methodType: Endpoint.MethodType) -> URLRequest {
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
         
         switch methodType {
         case .GET:

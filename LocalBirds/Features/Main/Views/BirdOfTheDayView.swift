@@ -7,22 +7,32 @@
 
 import SwiftUI
 
-struct BirdCardView: View {
+struct BirdOfTheDayView: View {
     
+    @Binding var shouldShowBOTD: Bool
     let bird: Bird
     
     var body: some View {
         VStack(spacing: .zero) {
+            Text("Bird Of The Day")
+                .foregroundColor(Theme.text)
+                .font(
+                    .system(.title3, design: .rounded)
+                )
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 15)
+                .background(Theme.detailBackground)
             AsyncImage(url: .init(string: bird.images.first ?? "https://images.unsplash.com/photo-1643650997626-0124dbb98261")) { image in
                 image
                     .resizable()
                     .scaledToFill()
-                    .frame(height: 130)
+                    .frame(height: 300)
                     .clipped()
             } placeholder: {
                 ProgressView()
             }
-
+            exit
             VStack (alignment: .leading) {
                 
                 PillView(id: bird.id)
@@ -47,4 +57,18 @@ struct BirdCardView: View {
 #Preview {
         
     BirdCardView(bird: Bird(images: [], region: [], lengthMin: "21", lengthMax: "22", name: "Hello", sciName: "Hellous", family: "Allens", order: "AndLaw", status: "Real Cool", id: 23)).frame(width: 200)
+}
+
+private extension BirdOfTheDayView {
+    
+    var exit: some View {
+        Button {
+            withAnimation {
+                shouldShowBOTD = false
+            }
+        } label: {
+            Text("get out of this shithole")
+        }
+    }
+    
 }

@@ -12,15 +12,15 @@ struct LocalBirdsApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
+                MainView()
+                    .tabItem {
+                        Symbols.list
+                        Text("Checklists")
+                    }
                 BirdsView()
                     .tabItem {
                         Symbols.bird
                         Text("Birds")
-                    }
-                ChecklistView()
-                    .tabItem {
-                        Symbols.list
-                        Text("Checklists")
                     }
                 SettingsView()
                     .tabItem {

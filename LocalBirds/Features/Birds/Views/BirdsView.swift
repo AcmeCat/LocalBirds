@@ -13,6 +13,7 @@ struct BirdsView: View {
                                 count: 2)
     
     @StateObject private var vm = BirdsViewModel()
+    @State private var hasAppeared = false
     
     var body: some View {
         NavigationView {
@@ -39,7 +40,10 @@ struct BirdsView: View {
             }
             .navigationTitle("Birds")
             .task {
-                await vm.fetchBirds()
+                if !hasAppeared {
+                    await vm.fetchBirds()
+                    hasAppeared = true
+                }
             }
             .alert(isPresented: $vm.hasError, error: vm.error) {
                 Button("Retry") {
@@ -48,6 +52,9 @@ struct BirdsView: View {
                     }
                 }
             }
+        }
+        .onAppear {
+            URLCache.shared.memoryCapacity = 1024 * 1024 * 128
         }
     }
 }
