@@ -13,44 +13,54 @@ struct BirdOfTheDayView: View {
     let bird: Bird
     
     var body: some View {
-        VStack(spacing: .zero) {
-            Text("Bird Of The Day")
-                .foregroundColor(Theme.text)
-                .font(
-                    .system(.title3, design: .rounded)
-                )
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 15)
-                .background(Theme.detailBackground)
-            AsyncImage(url: .init(string: bird.images.first ?? "https://images.unsplash.com/photo-1643650997626-0124dbb98261")) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .clipped()
-            } placeholder: {
-                ProgressView()
-            }
-            exit
-            VStack (alignment: .leading) {
-                
-                PillView(id: bird.id)
-                
-                Text("\(bird.name)")
+        VStack {
+            HStack {
+                Text("Bird Of The Day")
                     .foregroundColor(Theme.text)
                     .font(
-                        .system(.body, design: .rounded)
+                        .system(.title3, design: .rounded)
                     )
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 15)
+                Spacer()
+                exit
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
-                   alignment: .leading)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 5)
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .background(Theme.detailBackground)
+            
+            NavigationLink {
+                DetailView(birdId: bird.id)
+            } label: {
+                VStack(spacing: .zero) {
+                    AsyncImage(url: .init(string: bird.images.first ?? "https://images.unsplash.com/photo-1643650997626-0124dbb98261")) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(height: 300)
+                            .clipped()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    VStack (alignment: .leading) {
+                        
+                        PillView(id: bird.id)
+                        
+                        Text("\(bird.name)")
+                            .foregroundColor(Theme.text)
+                            .font(
+                                .system(.body, design: .rounded)
+                            )
+                    }
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,
+                           alignment: .leading)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 5)
+                    .background(Theme.detailBackground)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .shadow(color: Theme.text.opacity(0.1), radius: 2, x: 0, y: 1)
+            }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .shadow(color: Theme.text.opacity(0.1), radius: 2, x: 0, y: 1)
     }
 }
 
@@ -67,8 +77,12 @@ private extension BirdOfTheDayView {
                 shouldShowBOTD = false
             }
         } label: {
-            Text("get out of this shithole")
+            Image(systemName: "xmark.circle")
+                .font(.title3)
+                .foregroundColor(.blue)
         }
+        .padding()
+
     }
     
 }

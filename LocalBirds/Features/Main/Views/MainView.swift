@@ -25,11 +25,7 @@ struct MainView: View {
                     ScrollView {
                         VStack {
                             if isBOTDShown {
-                                NavigationLink {
-                                    DetailView(birdId: bird.id)
-                                } label: {
-                                    BirdOfTheDayView(shouldShowBOTD: $isBOTDShown, bird: bird)
-                                }
+                                BirdOfTheDayView(shouldShowBOTD: $isBOTDShown, bird: bird)
                                 Spacer().padding()
                             }
                             Text("Your Lists")
