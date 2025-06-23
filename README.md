@@ -2,7 +2,8 @@
 ## A iOS App for Birding
 
 ### Features
-- The app allows users to log bird sightings, create checklists, and view detailed information about bird species. 
+- The app allows users to log bird sightings, create checklists, and view detailed information about bird species.
+- Tabbed view to easily switch between Checklists, Bird Info, and Settings
 - Newly logged sighings update checklists in real time.
 - Enable haptic feedback for persistence confirmation in settings.
 - Supports light/dark modes
