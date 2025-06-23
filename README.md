@@ -1,4 +1,4 @@
-# ![appstore1024](https://github.com/user-attachments/assets/811c410a-7e93-4fcb-ba5e-18ae7dd772fb) LocalBirds 
+# ![mac64](https://github.com/user-attachments/assets/76603188-9d38-4119-ae94-571a4b169e59) LocalBirds 
 ## A iOS App for Birding
 
 ### Features
