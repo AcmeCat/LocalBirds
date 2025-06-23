@@ -12,10 +12,10 @@
 - Nuthatch API
 
 ## Screens
-| ![IMG_2652](https://github.com/user-attachments/assets/0b829d08-16c1-476b-b944-2c11d4191a10) | ![Menu View](/caps/seq2.PNG) | ![Search Menu Items](/caps/seq3.PNG) |
+| ![IMG_2652](https://github.com/user-attachments/assets/0b829d08-16c1-476b-b944-2c11d4191a10) | ![IMG_2651](https://github.com/user-attachments/assets/086b7d49-e5b1-4091-aa20-98e4159d7d55) | ![IMG_2650](https://github.com/user-attachments/assets/a0fdc561-d67e-41b9-9499-a7cda54f32fe) |
 | --------- | ---------- | ---------- |
 | Initial View | Menu View | Search Menu Items |
 
-| ![Customise View](/caps/seq4.PNG) | ![Select Sauce](/caps/seq5.PNG) | ![Order Updates](/caps/seq6.PNG) |
+| ![IMG_2649](https://github.com/user-attachments/assets/40a655c9-e70f-49ac-81a4-fe60dd49bc77) | ![IMG_2648](https://github.com/user-attachments/assets/db542e4a-e3b4-4626-915b-51f5a99dea8f) | ![Order Updates](/caps/seq6.PNG) |
 | --------- | ---------- | ---------- |
 | Customise View | Select Sauce | Order Updates |
