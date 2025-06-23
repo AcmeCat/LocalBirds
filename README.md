@@ -4,7 +4,7 @@
 ### Features
 - The app allows users to log bird sightings, create checklists, and view detailed information about bird species. 
 - Newly logged sighings update checklists in real time.
-- Order totals are updated each time a new menu item is added.
+- Enable haptic feedback for persistence confirmation in settings.
 
 ### Tools
 - SwiftUI
@@ -16,6 +16,6 @@
 | --------- | ---------- | ---------- |
 | Initial View | Menu View | Search Menu Items |
 
-| ![IMG_2649](https://github.com/user-attachments/assets/40a655c9-e70f-49ac-81a4-fe60dd49bc77) | ![IMG_2648](https://github.com/user-attachments/assets/db542e4a-e3b4-4626-915b-51f5a99dea8f) | ![Order Updates](/caps/seq6.PNG) |
+| ![IMG_2649](https://github.com/user-attachments/assets/40a655c9-e70f-49ac-81a4-fe60dd49bc77) | ![IMG_2648](https://github.com/user-attachments/assets/db542e4a-e3b4-4626-915b-51f5a99dea8f) | ![IMG_2664](https://github.com/user-attachments/assets/db9380d0-b0ae-40fb-98fd-fe70d599e6a0) |
 | --------- | ---------- | ---------- |
 | Customise View | Select Sauce | Order Updates |
