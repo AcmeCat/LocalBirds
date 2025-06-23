@@ -10,9 +10,9 @@
 - SwiftUI
 - Core Data
 - Nuthatch API
- 
+
 ## Screens
-| ![Initial View](/caps/seq1.PNG) | ![Menu View](/caps/seq2.PNG) | ![Search Menu Items](/caps/seq3.PNG) |
+| ![IMG_2652](https://github.com/user-attachments/assets/0b829d08-16c1-476b-b944-2c11d4191a10) | ![Menu View](/caps/seq2.PNG) | ![Search Menu Items](/caps/seq3.PNG) |
 | --------- | ---------- | ---------- |
 | Initial View | Menu View | Search Menu Items |
 
