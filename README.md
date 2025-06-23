@@ -1,4 +1,4 @@
-# <img src="/Samijz/Assets.xcassets/AppIcon.appiconset/samijz-logo-1024.png"  width="64" height="64"> LocalBirds 
+# ![appstore1024](https://github.com/user-attachments/assets/811c410a-7e93-4fcb-ba5e-18ae7dd772fb) LocalBirds 
 ## A iOS App for Birding
 
 ### Features
